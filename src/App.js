@@ -13,7 +13,7 @@ const App = () => {
     <div className='container'>
       <h1>Happening Please Work</h1>
       <div>
-        {events.map(event => <Event event={ event }/>)}
+        {events.map((event, index) => <Event event={ event } key={ index }/>)}
       </div>
     </div>
   );

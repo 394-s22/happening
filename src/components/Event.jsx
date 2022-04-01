@@ -3,7 +3,7 @@ import React from "react";
 const Event = ({ event }) => {
 
   return(
-    <div className="card">
+    <div className="card" style={{display: 'flex'}}>
       <h3>{ event.title }</h3>
       <p>{ event.description }</p>
       <p>{ event.groupSize }</p>
