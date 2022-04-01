@@ -1,0 +1,26 @@
+{
+    "events": [
+        {
+            "title": "Pizza Coding Party",
+            "location": "Tech M345",
+            "time": 1648769400,
+            "description": "Come and eat 🍕🍕🍕 while staring at a screen",
+            "pictureUrl": "https://bazarwale.com/assets/img/product_img/1626606284CT.jpg",
+            "groupSize": "6-8",
+            "meta": {
+                "age": "21+"
+            }
+        },
+        {
+            "title": "Bob's Pizza Trivia Night",
+            "location": "616 Davis St",
+            "time": 1648770400,
+            "description": "Pizza and trivia - win PRIZES!",
+            "pictureUrl": "https://dynl.mktgcdn.com/p/hxJgH_gPUGuHQPqGidqaJNMl9pbQqLO7esOuNzfyw8o/496x344.png",
+            "groupSize": "4-8",
+            "meta": {
+                "age": "18+"
+            }
+        }
+    ]
+}
