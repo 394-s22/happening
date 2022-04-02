@@ -11,7 +11,7 @@ const App = () => {
 
   return (
     <div className='container'>
-      <h1>Happening Please Work</h1>
+      <h1>Happening</h1>
       <div>
         {events.map((event, index) => <Event event={ event } key={ index }/>)}
       </div>
