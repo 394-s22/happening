@@ -25,21 +25,27 @@ const App = () => {
     .map(([_, event]) => event);
 
   return (
-    <div className='container'>
-      <h1>Happening</h1>
-      <div>
-        <Filter filters={ filters } setFilters={ setFilters } filterOptions={ filterOptions } />
+    <>
+      <nav style={{backgroundColor: 'orange'}} className="navbar">
+        <div className="container-fluid justify-content-center">
+          <span className="navbar-brand">Happening</span>
+        </div>
+      </nav>
+      <div className='container'>
+        <div>
+          <Filter filters={ filters } setFilters={ setFilters } filterOptions={ filterOptions } />
+        </div>
+        <div>
+          {
+            filters.length !== 0 ? (
+              eventResults.map((event, index) => <Event event={ event } key={ index }/>)
+            ) : (
+              events.map((event, index) => <Event event={ event } key={ index }/>)
+            )
+          }
+        </div>
       </div>
-      <div>
-        {
-          filters.length !== 0 ? (
-            eventResults.map((event, index) => <Event event={ event } key={ index }/>)
-          ) : (
-            events.map((event, index) => <Event event={ event } key={ index }/>)
-          )
-        }
-      </div>
-    </div>
+    </>
   );
 }
 

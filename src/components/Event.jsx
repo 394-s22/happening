@@ -1,6 +1,12 @@
 import React from "react";
 
 const Event = ({ event }) => {
+  let date;
+  if (event.time) {
+    // Javascript date in ms??!?!?!??! Need to multiply by 1000
+    date = new Date();
+    date.setTime(event.time * 1000);
+  } 
 
   return(
     <div className="card" style={{display: "flex", flexDirection: "row"}}>
@@ -10,8 +16,8 @@ const Event = ({ event }) => {
       <div>
         <h3>{ event.title }</h3>
         <div>{ event.description }</div>
-        <div>{ event.groupSize }</div>
-        <div>{ event.time }</div>
+        <div>Suggested Group Size: { event.groupSize }</div>
+        {date&& <div>{ date.toLocaleString() }</div>}
       </div>
       
     </div>

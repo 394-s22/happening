@@ -1,5 +1,11 @@
 import React, { useState } from "react";
 
+const FilterButton = ({ text, variant, ...props }) => {
+    return(
+        <button style={{margin: ".2em"}} className={`badge rounded-pill bg-${variant}`} {...props}>{ text }</button>
+    )
+}
+
 const Filter = ({ filters, setFilters, filterOptions }) => {
   const [expanded, setExpanded] = useState(false);
 
@@ -8,14 +14,15 @@ const Filter = ({ filters, setFilters, filterOptions }) => {
 
   return (
     <div style={{ border: "solid 1px #333" }}>
-      <div>
+      <div style={{borderBottom: "solid 1px #333"}}>
         <button className="btn btn-primary" onClick={() => setExpanded(!expanded)}>Add Filters</button>
-        { filters.map((f, idx) => <button key={idx} onClick={() => removeFilter(f)}>{f}</button>) }    
+        { filters.map((f, idx) => <FilterButton key={idx} text={f} variant={ "success" }onClick={() => removeFilter(f)}/>) }    
       </div>
           
       {
         (expanded) && (
-          filterOptions.filter(option => !filters.includes(option)).map((option, idx) => <button key={idx} onClick={() => addFilter(option)} >{option}</button>)
+          filterOptions.filter(option => !filters.includes(option)).map((option, idx) => (
+            <FilterButton key={idx} text={ option } variant={ "secondary" } onClick={() => addFilter(option)} />))
         )
       }
 
