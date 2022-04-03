@@ -22,5 +22,7 @@
                 "age": "18+"
             }
         }
-    ]
+    ],
+    "filters": ["food", "free", "drinks", "active", "outdoors", 
+                "indoors", "educational", "nightlife", "entertainment", "shopping"]
 }
