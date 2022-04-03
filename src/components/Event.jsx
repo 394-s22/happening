@@ -9,15 +9,23 @@ const Event = ({ event }) => {
   } 
 
   return(
-    <div className="card" style={{display: "flex", flexDirection: "row"}}>
-      <div>
-        <img src={ event.pictureUrl } alt="Event" style={{height: "8em", width:"8em"}}/>
+    <div className="card" style={{display: "flex", flexDirection: "row", margin: '.5em', border: 'solid 1px #888'}}>
+      <div style={{ display: 'flex', alignItems: 'center' }}>
+        <img src={ event.pictureUrl } alt="Event" style={{height: "6em", width:"6em", margin: '0.5em 0.5em', borderRadius: '15px'}}/>
       </div>
       <div>
-        <h3>{ event.title }</h3>
+        <div style={{marginBottom: '.4em'}}>
+          <h4 style={{margin: '0'}}>{ event.title }</h4>
+          {
+            date && (
+              <div>{ date.toLocaleString() }</div>
+            )
+          }
+          {
+            event.groupSize && <div>👥: { event.groupSize }</div>
+          }
+        </div> 
         <div>{ event.description }</div>
-        <div>Suggested Group Size: { event.groupSize }</div>
-        {date&& <div>{ date.toLocaleString() }</div>}
       </div>
       
     </div>

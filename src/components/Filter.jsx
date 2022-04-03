@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 const FilterButton = ({ text, variant, ...props }) => {
     return(
-        <button style={{margin: ".2em"}} className={`badge rounded-pill bg-${variant}`} {...props}>{ text }</button>
+        <button style={{margin: ".2em", border: 'none'}} className={`badge rounded-pill bg-${variant}`} {...props}>{ text }</button>
     )
 }
 
@@ -13,18 +13,40 @@ const Filter = ({ filters, setFilters, filterOptions }) => {
   const removeFilter = (f) => setFilters(filters.filter(selected => selected !== f));
 
   return (
-    <div style={{ border: "solid 1px #333" }}>
-      <div style={{borderBottom: "solid 1px #333"}}>
-        <button className="btn btn-primary" onClick={() => setExpanded(!expanded)}>Add Filters</button>
-        { filters.map((f, idx) => <FilterButton key={idx} text={f} variant={ "success" }onClick={() => removeFilter(f)}/>) }    
+    <div style={{ background: 'white', border: "solid 1px #333", borderRadius: '5px' }}>
+      <div style={{ display: 'flex', flexDirection: 'row' }}>
+        <div style={{flexGrow: '1'}}>
+          {
+            (filters.length > 0) ? (
+              filters.map((f, idx) => <FilterButton key={idx} text={f} variant={ "success" }onClick={() => removeFilter(f)}/>)
+            ) : (
+              <button 
+                style={{ background: 'none', border: 'none', width: '100%', textAlign: 'left'}}
+                onClick={() => setExpanded(!expanded)}
+              >
+                Add filters...
+              </button>   
+            )
+          }
+        </div>
+        <button
+          onClick={() => setExpanded(!expanded)}
+          style={{ background: 'none', border: 'none', borderLeft: 'solid 1px #333', flexGrow: '0'}}  
+        >
+          { expanded ? '▲' : '▼'}
+        </button>
       </div>
           
       {
         (expanded) && (
-          filterOptions.filter(option => !filters.includes(option)).map((option, idx) => (
-            <FilterButton key={idx} text={ option } variant={ "secondary" } onClick={() => addFilter(option)} />))
+          <div style={{ borderTop: '1px solid #333' }}>
+            {
+              filterOptions.filter(option => !filters.includes(option)).map((option, idx) => (
+                <FilterButton key={idx} text={ option } variant={ "secondary" } onClick={() => addFilter(option)} />))
+            }
+          </div>
         )
-      }
+      } 
 
     </div>
   );
