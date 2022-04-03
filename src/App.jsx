@@ -25,14 +25,14 @@ const App = () => {
     .map(([_, event]) => event);
 
   return (
-    <>
-      <nav style={{backgroundColor: 'orange'}} className="navbar">
-        <div className="container-fluid justify-content-center">
-          <span className="navbar-brand">Happening</span>
+    <div style={{backgroundColor: '#EEE', minHeight: '100vh'}}>
+      <nav style={{backgroundColor: '#FD6221'}} className="navbar">
+        <div className="container-fluid">
+          <span className="navbar-brand" style={{fontWeight: '800', color: 'white'}}>Happening</span>
         </div>
       </nav>
       <div className='container'>
-        <div>
+        <div style={{ margin: '.4em'}}>
           <Filter filters={ filters } setFilters={ setFilters } filterOptions={ filterOptions } />
         </div>
         <div>
@@ -45,7 +45,7 @@ const App = () => {
           }
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
