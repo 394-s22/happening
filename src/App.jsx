@@ -36,7 +36,7 @@ const App = () => {
       <div className='container'>
         {
         selectedEvent ? (
-          <SelectedEvent event={ selectedEvent }/> 
+          <SelectedEvent event={ selectedEvent } recommendedEvents={ events.filter( event => event.title !== selectedEvent.title) }/> 
         ) :
         <>
           <div style={{ margin: '.4em'}}>

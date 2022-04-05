@@ -1,6 +1,7 @@
 import React from "react";
+import Event from "./Event";
 
-const SelectedEvent = ({ event }) => {
+const SelectedEvent = ({ event, recommendedEvents}) => {
     let date;
     if (event.time) {
         // Javascript date in ms??!?!?!??! Need to multiply by 1000
@@ -11,7 +12,7 @@ const SelectedEvent = ({ event }) => {
     return(
         <div>
           <div>
-            <img src={ event.pictureUrl } alt="Event" style={{width:"80%", margin: '0.5em auto', borderRadius: '15px'}}/>
+            <img src={ event.pictureUrl } alt="Event" style={{ display: "block", width:"80%", margin: '0.5em auto', borderRadius: '15px'}}/>
           </div>
           <div>
             <div>
@@ -26,6 +27,12 @@ const SelectedEvent = ({ event }) => {
               }
             </div> 
             <div>{ event.description }</div>
+            <div style={{marginTop: "2em"}}>
+              <h5 style={{textAlign: "center", marginBottom: "0.5em"}}>Nearby Events</h5>
+              <div>
+                { recommendedEvents.map((event, index) => <Event event={ event } key={ index }/>) }
+              </div>
+            </div>
           </div>
           
         </div>
