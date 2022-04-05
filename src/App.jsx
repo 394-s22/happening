@@ -30,8 +30,15 @@ const App = () => {
     <div style={{backgroundColor: '#EEE', minHeight: '100vh'}}>
       <nav style={{backgroundColor: '#FD6221'}} className="navbar">
         <div className="container-fluid">
-          <span className="navbar-brand" style={{fontWeight: '800', color: 'white'}}>Happening</span>
+          <span className="navbar-brand" style={{fontWeight: '800', color: 'white'}} onClick={ () => (selectedEvent) && setSelectedEvent(null) }>
+          {
+            selectedEvent&& (<span style={{ paddingRight: "1em" }}>❮</span>)
+          }
+            Happening
+          </span>
+
         </div>
+
       </nav>
       <div className='container'>
         {
