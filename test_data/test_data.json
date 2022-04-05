@@ -35,8 +35,147 @@
                 "age": "18+",
                 "filters": ["educational", "indoors"]
             }
+        },
+        {
+            "title": "Uprise Half Cab Launch Party with Special Performance by Urethane",
+            "location": "House of Vans Chicago 113 N. Elizabeth St. Chicago, IL 60607",
+            "time": 1649770400,
+            "description": "Open Skate and Live Performances",
+            "pictureUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F259746419%2F312330282176%2F1%2Foriginal.20220403-213934?w=800&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C0%2C2160%2C1080&s=e3888f390c49011f466aac778deabd7a",
+            "groupSize": "Any",
+            "meta": {
+                "age": "18+",
+                "filters": ["food", "nightlife", "skating","music"]
+            }
+        },
+        {
+            "title": "Skate Park",
+            "location": "180 Michigan Ave Chicago, IL 60607",
+            "time": 1649720400,
+            "description": "Giant skate park",
+            "pictureUrl": "https://i.guim.co.uk/img/media/193a41187a4b3c0967d4d4d172386af92d7ba4f3/994_1882_2987_1792/master/2987.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=c32f0492424e571209a4d4090bd48413",
+            "groupSize": "Any",
+            "meta": {
+                "age": "18+",
+                "filters": ["outdoors", "active"]
+            }
+        },
+        {
+            "title": "Corgi Meetup",
+            "location": "477 Michigan Ave Chicago, IL 60607",
+            "time": 1649680400,
+            "description": "Bring your dog and meet others",
+            "pictureUrl": "https://media.istockphoto.com/photos/portrait-red-welsh-corgi-dog-outdoors-in-the-park-on-a-sunny-summer-picture-id1061822700?k=20&m=1061822700&s=612x612&w=0&h=MCzRF2xhYsIsXZSEGmsvBnVUg9zkrxr4GAkI_4-fAvk=",
+            "groupSize": "Any",
+            "meta": {
+                "age": "18+",
+                "filters": ["outdoors", "active"]
+            }
+        },
+        {
+            "title": "Navy Pier",
+            "location": "600 E Grand AVe, Chicago, IL",
+            "time": "",
+            "description": "Come have fun on the shores of Lake Michigan",
+            "pictureUrl": "https://media.tacdn.com/media/attractions-splice-spp-674x446/0b/27/5b/87.jpg",
+            "groupSize": "",
+            "meta": {
+                "filters": ["food", "outdoors", "entertainment"]
+            }
+        },
+        {
+            "title": "The Weeknd",
+            "location": "Soldier Field",
+            "time": 1648970400,
+            "description": "See The Weeknd live at Solider Field",
+            "pictureUrl": "data:image/jpeg;base64,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",
+            "groupSize": "",
+            "meta": {
+                "filters": ["entertainment", "outdoors"]
+            }
+        },
+        {
+            "title": "Video Game EDM Concert",
+            "location": "3145 North Sheffield Avenue",
+            "time": 1648771400,
+            "description": "",
+            "pictureUrl": "https://edm.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTc0MjcwODY3NDk5Mzk0NTU2/edm-festival.jpg",
+            "groupSize": "",
+            "meta": {
+                "age": "18+",
+                "filters": ["drink", "nightlife", "entertainment"]
+            }
+        },
+        {
+            "title": "Puppy Adoption Meet and Greet",
+            "location": "830 Michigan Avenue",
+            "time": 1651419000,
+            "description": "",
+            "pictureUrl": "https://d.newsweek.com/en/full/1967683/golden-retriever.jpg?w=1600&h=1600&q=88&f=c6b12ac4c1633870981cad7bb240087b",
+            "groupSize": "",
+            "meta": {
+                "filters": ["free"]
+            }
+        },
+        {
+            "title": "In Translation: A Synesthetic Art Show from Jess Brooks",
+            "location": "Fulton Street Collective 1821 W Hubbard St UNIT 307, Chicago, IL 60622",
+            "time": 1648790400,
+            "description": "Synesthetic Art Exhibit",
+            "pictureUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F242197339%2F752516839873%2F1%2Foriginal.20220307-044238?w=800&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C0%2C2160%2C1080&s=6261c85903be0567fae15dc73658fe30",
+            "groupSize": "4-6",
+            "meta": {
+                "filters": ["nightlife", "entertainment"]
+            }
+        },
+        {
+            "title": "360 Chicago Observation Deck",
+            "location": "875 N Michigan Avenue 94th Floor, Chicago, IL, 60611-1803",
+            "time": 1648770400,
+            "description": "Located on the 94th floor of the John Hancock Center, 360 CHICAGO offers breathtaking views of Chicago’s skyline, the lakefront, and four states.",
+            "pictureUrl": "https://media.tacdn.com/media/attractions-splice-spp-674x446/06/6f/20/d4.jpg",
+            "groupSize": "4-8",
+            "meta": {
+                "filters": ["indoors"]
+            }
+        },
+        {
+            "title": "Lincoln Park Zoo",
+            "location": "2001 N Clark Street, Chicago, IL, 60614",
+            "time": 1648770400,
+            "description": "Established in 1868, this 35-acre, beautifully landscaped zoo is one of America's last free-admission zoos.",
+            "pictureUrl": "https://cdn.getyourguide.com/img/location/5729ac7dbdd10.jpeg/88.jpg",
+            "groupSize": "4-8",
+            "meta": {
+                "age": "18+",
+                "filters": ["outdoors", "active", "educational"]
+            }
+        },
+        {
+            "title": "Chicago Spring Marathon 2022",
+            "location": "Millinium Park, Chicago",
+            "time": 1648796400,
+            "description": "Interested in running? Join us on a 25-mile marathon along the lake Michigan",
+            "pictureUrl": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/general-view-of-competitors-runing-past-the-chicago-theater-news-photo-1587484566.jpg",
+            "groupSize": "100-200",
+            "meta": {
+                "age": "16+",
+                "filters": ["active", "outdoors"]
+            }
+        },
+        {
+            "title": "Support Ukraine :flag-ua:",
+            "location": "Ukraine Village, Chicago",
+            "time": 1648788400,
+            "description": "Come join us on our protest against Russian invasion",
+            "pictureUrl": "https://images.foxtv.com/static.fox29.com/www.fox29.com/content/uploads/2022/03/1280/720/Ukraine-support-1.jpg?ve=1&tl=1",
+            "groupSize": "200-300",
+            "meta": {
+                "age": "",
+                "filters": ["outdoors", "educational"]
+            }
         }
     ],
     "filters": ["food", "free", "drinks", "active", "outdoors", 
-                "indoors", "educational", "nightlife", "entertainment", "shopping"]
+                "indoors", "educational", "nightlife", "entertainment", "shopping" , "music"]
 }
