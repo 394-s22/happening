@@ -1,6 +1,6 @@
 import React from "react";
 
-const Event = ({ event }) => {
+const Event = ({ event, onClick }) => {
   let date;
   if (event.time) {
     // Javascript date in ms??!?!?!??! Need to multiply by 1000
@@ -9,7 +9,7 @@ const Event = ({ event }) => {
   } 
 
   return(
-    <div className="card" style={{display: "flex", flexDirection: "row", margin: '.5em', border: 'solid 1px #888'}}>
+    <div className="card" onClick={ onClick } style={{display: "flex", flexDirection: "row", margin: '.5em', border: 'solid 1px #888'}}>
       <div style={{ display: 'flex', alignItems: 'center' }}>
         <img src={ event.pictureUrl } alt="Event" style={{height: "6em", width:"6em", margin: '0.5em 0.5em', borderRadius: '15px'}}/>
       </div>

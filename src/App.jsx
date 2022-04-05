@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Event from "./components/Event";
+import SelectedEvent from "./components/SelectedEvent";
 import Filter from "./components/Filter";
 import { useData } from "./utils/firebase.js"
 
@@ -7,6 +8,7 @@ const App = () => {
   const [data, loading, error] = useData('/');
 
   const [filters, setFilters] = useState([]);
+  const [selectedEvent, setSelectedEvent] = useState();
   
   if (error) return <h1>{error}</h1>;
   if (loading) return <h1>Loading the schedule...</h1>
@@ -28,22 +30,41 @@ const App = () => {
     <div style={{backgroundColor: '#EEE', minHeight: '100vh'}}>
       <nav style={{backgroundColor: '#FD6221'}} className="navbar">
         <div className="container-fluid">
-          <span className="navbar-brand" style={{fontWeight: '800', color: 'white'}}>Happening</span>
+          <span className="navbar-brand" style={{fontWeight: '800', color: 'white'}} onClick={ () => (selectedEvent) && setSelectedEvent(null) }>
+          {
+            selectedEvent&& (<span style={{ paddingRight: "1em" }}>❮</span>)
+          }
+            Happening
+          </span>
+
         </div>
+
       </nav>
       <div className='container'>
-        <div style={{ margin: '.4em'}}>
-          <Filter filters={ filters } setFilters={ setFilters } filterOptions={ filterOptions } />
-        </div>
-        <div>
-          {
-            filters.length !== 0 ? (
-              eventResults.map((event, index) => <Event event={ event } key={ index }/>)
-            ) : (
-              events.map((event, index) => <Event event={ event } key={ index }/>)
-            )
-          }
-        </div>
+        {
+        selectedEvent ? (
+          <SelectedEvent event={ selectedEvent } recommendedEvents={ events.filter( event => event.title !== selectedEvent.title) }/> 
+        ) :
+        <>
+          <div style={{ margin: '.4em'}}>
+            <Filter filters={ filters } setFilters={ setFilters } filterOptions={ filterOptions } />
+          </div>
+          <div>
+            {
+              filters.length !== 0 ? (
+                eventResults.map((event, index) => <Event onClick={ () => setSelectedEvent(event) } event={ event } key={ index }/>)
+              ) : (
+                events.map((event, index) => <Event event={ event } onClick={ () => setSelectedEvent(event) } key={ index }/>)
+              )
+            }
+          </div>
+        </>
+        }
+  
+        
+
+
+
       </div>
     </div>
   );
