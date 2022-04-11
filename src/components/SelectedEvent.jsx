@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Event from "./Event";
 
 const SelectedEvent = ({ event, recommendedEvents}) => {
   const [rsvpCount, setRsvpCount] = useState(Math.floor(Math.random() * 30));
