@@ -1,0 +1,108 @@
+{
+    "events": [
+        {
+            "title": "ReFusionShaka",
+            "location": "Galvin Hall",
+            "time": 1650155400,
+            "description": "After two years, ReFusionShaka is back in-person this weekend with performances by Refresh Dance Crew, Fusion Dance Company and Boomshaka.",
+            "pictureUrl": "https://dailynorthwestern.com/wp-content/uploads/2021/11/DSC_9093.jpeg",
+            "meta": {
+                "filters": ["entertainment", "drinks", "indoors"]
+            }
+        },
+        {
+            "title": "Board Game Night",
+            "location": "Main 5746",
+            "time": 1650065400,
+            "description": "Join in for board games! Examples of past games include Catan, Exploding Kittens, and Spoons.",
+            "pictureUrl": "https://specials-images.forbesimg.com/imageserve/5fd2859936891275777bd882/Catan-board-game/960x0.jpg?cropX1=0&cropX2=1500&cropY1=70&cropY2=1433",
+            "meta": {
+                "filters": ["food", "indoors"]
+            }
+        },
+        {
+            "title": "Dog Therapy",
+            "location": "1937 Sheridan Rd, Evanston, IL, 60208",
+            "time": 1650049200,
+            "description": "Relieve your stress during midterms season by petting cute dogs!",
+            "pictureUrl": "https://www.library.northwestern.edu/about/news/library-news/2018/library-exam-relief-fall-quarter.html",
+            "meta": {
+                "filters": ["indoors", "free"]
+        }
+        },
+        {
+            "title": "Bake Sale for Ukraine Aid",
+            "location": "The Rock",
+            "time": 1650047400,
+            "description": "All proceeds go to a relief fund for Ukranian refugees.",
+            "pictureUrl": "https://i.pinimg.com/originals/d5/13/36/d513369df17684768ba915b47b2be341.jpg",
+            "meta": {
+                "filters": ["food"]
+            }
+        },
+        {
+            "title": "Spring Student Org Fair",
+            "location": "Norris Second Floor Conference Hall",
+            "time": 1650052800,
+            "description": "Missed the fall AND winter org fairs? Ditch the Going Home Club and get connected to student orgs! Check out which orgs will be there: https://www.northwestern.edu/studentorgs/students/",
+            "pictureUrl": "https://www.northwestern.edu/studentorgs/images/activities-fair.jpg",
+            "meta": {
+                "filters": ["indoors"]
+            }
+        },
+        {
+            "title": "Block Party",
+            "location": "2151 Sherman Ave, Evanston, IL",
+            "time": 1650124800,
+            "description": "Our first block party of the year! Featuring live music from DJ Wildcat",
+            "pictureUrl": "https://media.phillyvoice.com/media/images/6.21molestice1.7799a747.fill-735x490.png",
+            "meta": {
+                "age": "21+",
+                "filters": ["drinks", "outdoors"]
+            }
+        },
+        {
+            "title": "THUNK Acapella Concert",
+            "location": "2151 Sherman Ave, Evanston, IL",
+            "time": 1650067200,
+            "description": "Free admission for all Northwestern students",
+            "pictureUrl": "http://www.thunkacappella.com/uploads/1/3/7/6/13761050/editor/35628971-10156340414878326-5903948013146996736-o.jpg?1529366122",
+            "meta": {
+                "filters": ["music", "indoors", "entertainment"]
+            }
+        },
+        {
+            "title": "McCormick Student Social Lakefill Campfire",
+            "location": "Lakefill Fire Pit",
+            "time": 1650130204,
+            "description": "McCormick Student Advisory Board is hosting a McCormick Student Social at the lakefill",
+            "pictureUrl": "https://admissionblog.northwestern.edu/files/2015/07/Blog-Post-Image-tcwxq1.jpg",
+            "meta": {
+                "filters": ["outdoors", "nightlife"]
+            }
+        },
+        {
+            "title": "Hearts and Crafts",
+            "location": "Norris Ground Floor",
+            "time": 1650067200,
+            "description": "Join NU Nights for a night of Hearts & Crafts, we'll be providing wood slices and paints for you all to get in tune with your creative sides",
+            "pictureUrl": "https://scontent-ort2-1.xx.fbcdn.net/v/t39.30808-6/273493841_4691985954262598_5751820758187137867_n.jpg?stp=dst-jpg_s960x960&_nc_cat=105&ccb=1-5&_nc_sid=340051&_nc_ohc=WkcytaVLM3kAX_kTRkO&_nc_ht=scontent-ort2-1.xx&oh=00_AT-FrtinpidSYWAKVawvLn2CT8GLvB-xygrdtXRXwV6GrA&oe=625844C0",
+            "meta": {
+                "filters": ["food", "indoors"]
+            }
+        },
+        {
+            "title": "Northwestern University Sailing Lessons",
+            "location": "1823 Campus Dr, Evanston, IL 60208",
+            "time": 1650135600,
+            "description": "Come learn to sail with experts!",
+            "pictureUrl": "https://www.northwesternsailing.com/sailing-classes.phtml",
+            "groupSize": "4-8",
+            "meta": {
+                "filters": ["outdoors", "active"]
+            }
+        }
+    ],
+    "filters": ["food", "free", "drinks", "active", "outdoors", 
+                "indoors", "educational", "nightlife", "entertainment", "shopping" , "music"]
+}
