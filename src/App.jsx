@@ -29,7 +29,7 @@ const App = () => {
 
   return (
     <div style={{backgroundColor: '#EEE', minHeight: '100vh'}}>
-      <nav style={{backgroundColor: '#FD6221'}} className="navbar">
+      <nav style={{backgroundColor: '#4e2a84'}} className="navbar">
         <div className="container-fluid">
           <span className="navbar-brand" style={{fontWeight: '800', color: 'white'}} onClick={ () => (selectedEvent) && setSelectedEvent(null) }>
           {

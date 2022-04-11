@@ -28,8 +28,8 @@ const SelectedEvent = ({ event, recommendedEvents}) => {
             }
           </div> 
           <div>{ event.description }</div>
-          <div>
-            <p>Number of attendees { rsvpCount }</p>
+          <div style={{padding:"1em", backgroundColor:"#d9d9d9", margin:".5em", width:"90%", borderRadius:"15px"}}>
+            <p style={{marginBottom:"0.25em"}}>Number of attendees { rsvpCount }</p>
             {
               didRsvp ? (
               <button 
