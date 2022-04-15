@@ -174,6 +174,26 @@
                 "age": "",
                 "filters": ["outdoors", "educational"]
             }
+        },
+        {
+            "title": "McCormick Student Social Lakefill Campfire",
+            "location": "Lakefill Fire Pit",
+            "time": 1650130204,
+            "description": "McCormick Student Advisory Board is hosting a McCormick Student Social at the lakefill",
+            "pictureUrl": "https://gm1.ggpht.com/VXdZ6xysULhT3v3FRhUzh8q1pCbP4GVs1oKh0X_a8R6DgLYwOBCSrsP-AtfoumAWi9ztXZWFoj43iQTGIpuz7YhjWm0ci2FMpYfvG0Dnj-_XIFXKmxyaKqLbw_FkC-3nqgoFOOEu2HS1j4gQTqbZi4j7FpWWt7zUDPthgQXVRD6Ta6VQ-LeWbov1a9D3_CmXhRFNoUXCb3jU8inAkhkcbOQc-Y3o4fF_GVhQlzSmy-WWvWUQyVV3OGqMUMbHo9ahPOilvAjiHQ-VnyyHGrK_atzbtoxkFLS0llElJ0q2IBoRPMvJpHLMrkHOqRn46J0l88OiSCwOPgzCDP1FDqk8PLmNIFVWXOJyVqOtsUNkSVdWM3K2Z1jU7mC_sX15G7qionIf0fVqLrAJ6HbNhQxDd23eBgXVt5zgrctjf3JwsPswZxBUEdpw-if8SVlSxIAV-fdxCe3m7UBXvuZVco9IjamqwFFY5_Mrz2jXB2LPBIAYymYchW4i9Kxbr-GY0rm81jTtZWMDO2af8HOcRZVJQw7d0zGiNhp-512gfW9dW625ywgm1sedQMh-t7hW1tdu8GEV46sC_y7kft6oGXxHKQHnrzV1XyTX994q0LltKgZmHN2MNVzL-RRrmFWnzXJPVQdalJj6x3L77_YV1q2Mlg9IRPUu8FHZWClw37IYcsv-O4Q-9cqx6dwd2eSlEdgS-wIQGrIsWvEA8FoMhf9iamvFoRMCbPOoKqFmY9zaO1iWlUPkmp1t3rUCwJ5pJCQc_g5oS736zu_Eoy-E5BB7_XRAqbRLM6VPOBt5ICZhbvuanp_7OlQ=s0-l75-ft-l75-ft",
+            "meta": {
+                "filters": ["outdoors", "nightlife"]
+            }
+        },
+        {
+            "title": "Hearts and Crafts",
+            "location": "Norris Ground Floor",
+            "time": 1650067200,
+            "description": "Join NU Nights for a night of Hearts & Crafts, we'll be providing wood slices and paints for you all to get in tune with your creative sides",
+            "pictureUrl": "https://scontent-ort2-1.xx.fbcdn.net/v/t39.30808-6/273493841_4691985954262598_5751820758187137867_n.jpg?stp=dst-jpg_s960x960&_nc_cat=105&ccb=1-5&_nc_sid=340051&_nc_ohc=WkcytaVLM3kAX_kTRkO&_nc_ht=scontent-ort2-1.xx&oh=00_AT-FrtinpidSYWAKVawvLn2CT8GLvB-xygrdtXRXwV6GrA&oe=625844C0",
+            "meta": {
+                "filters": ["food", "indoors"]
+            }
         }
     ],
     "filters": ["food", "free", "drinks", "active", "outdoors", 
