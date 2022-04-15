@@ -26,7 +26,7 @@ const Event = ({ event, onClick }) => {
             event.groupSize && <div>👥: { event.groupSize }</div>
           }
         </div> 
-        <div>{ event.description }</div>
+        <div className={ styles.description }>{ event.description }</div>
       </div>
       
     </div>
