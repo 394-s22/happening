@@ -14,7 +14,7 @@ const App = () => {
 
   if (!user) return <Login/>;
   console.log(user);
-  if (!user.email.endsWith("northwestern.edu")) return <div>You're not allowed</div>
+  if (!user.email.endsWith("northwestern.edu")) return <div>You need to login with northwestern email <Login/></div>
 
   if (error) return <h1>{error}</h1>;
   if (loading) return <h1>Loading the schedule...</h1>
