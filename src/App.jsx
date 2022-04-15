@@ -34,8 +34,12 @@ const App = () => {
 
   return (
     <div style={{backgroundColor: '#EEE', minHeight: '100vh'}}>
-      <Header showBackClick={!!selectedEvent} onBackClick={() => setSelectedEvent(null)} />
-      
+      <Header
+        showBackClick={ !!selectedEvent }
+        onBackClick={() => setSelectedEvent(null)}
+        user={ user }
+      />
+
       <div className='container'>
         {
         selectedEvent ? (

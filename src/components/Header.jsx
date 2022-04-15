@@ -1,8 +1,9 @@
 import React from 'react';
 
 import styles from '../global.module.css';
+import { firebaseSignOut } from '../utils/firebase';
 
-const Header = ({ showBackClick, onBackClick }) => (
+const Header = ({ showBackClick, onBackClick, user }) => (
   <nav style={{backgroundColor: '#4e2a84'}} className="navbar">
     <div className="container-fluid">
       <span
@@ -17,6 +18,13 @@ const Header = ({ showBackClick, onBackClick }) => (
         }
         Happening
       </span>
+      {
+        user && (
+          <span>
+            <button onClick={() => firebaseSignOut()} className="btn" style={{ color: 'white', borderColor: 'white' }}>Logout</button>
+          </span>
+        )
+      }
     </div>
   </nav>
 );
