@@ -10,6 +10,7 @@ const App = () => {
   const [filters, setFilters] = useState([]);
   const [selectedEvent, setSelectedEvent] = useState();
   
+  
   if (error) return <h1>{error}</h1>;
   if (loading) return <h1>Loading the schedule...</h1>
 
