@@ -1,0 +1,8 @@
+.eventCard:hover {
+    cursor: pointer;
+}
+
+.description {
+    overflow: hidden;
+    width: 100%;
+}

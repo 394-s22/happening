@@ -18,7 +18,7 @@ const Filter = ({ filters, setFilters, filterOptions }) => {
         <div style={{flexGrow: '1'}}>
           {
             (filters.length > 0) ? (
-              filters.map((f, idx) => <FilterButton key={idx} text={f} variant={ "success" }onClick={() => removeFilter(f)}/>)
+              filters.map((f, idx) => <FilterButton key={idx} text={"✕ "+f} variant={ "success" }onClick={() => removeFilter(f)}/>)
             ) : (
               <button 
                 style={{ background: 'none', border: 'none', width: '100%', textAlign: 'left'}}
