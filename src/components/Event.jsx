@@ -26,7 +26,7 @@ const Event = ({ event, onClick }) => {
             event.groupSize && <div>👥: { event.groupSize }</div>
           }
         </div> 
-        <div className={ styles.description }>{ event.description }</div>
+        <div className={ styles.description }>{ event.description.length > 80 ? event.description.substr(0, 80).split(' ').slice(0, -1).join(' ') + '...' : event.description }</div>
       </div>
       
     </div>
