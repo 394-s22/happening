@@ -21,7 +21,13 @@ const Header = ({ showBackClick, onBackClick, user }) => (
       {
         user && (
           <span>
-            <button onClick={() => firebaseSignOut()} className="btn" style={{ color: 'white', borderColor: 'white' }}>Logout</button>
+            <button
+              onClick={() => window.confirm('Are you sure you want to sign out?') && firebaseSignOut()}
+              className="btn"
+              style={{ color: 'white', borderColor: 'white' }}
+            >
+              Sign out
+            </button>
           </span>
         )
       }

@@ -13,7 +13,12 @@ const App = () => {
   const [selectedEvent, setSelectedEvent] = useState();
   const [user] = useUserState();
 
-  if (!user || !user.email.endsWith("northwestern.edu")) return <Login user={user}/>;
+  if (!user) return <Login />;
+
+  if (!user.email.endsWith("northwestern.edu")) {
+    alert('Please sign in with a university affiliated email address.');
+    return <Login />;
+  }
 
   if (error) return <h1>{error}</h1>;
   if (loading) return <h1>Loading the schedule...</h1>
