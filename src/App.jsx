@@ -2,15 +2,19 @@ import React, { useState } from "react";
 import Event from "./components/Event";
 import SelectedEvent from "./components/SelectedEvent";
 import Filter from "./components/Filter";
-import { useData } from "./utils/firebase.js"
+import { useData, useUserState } from "./utils/firebase.js"
+import Login from "./components/Login";
 
 const App = () => {
   const [data, loading, error] = useData('/');
 
   const [filters, setFilters] = useState([]);
   const [selectedEvent, setSelectedEvent] = useState();
-  
-  
+  const [user] = useUserState();
+
+  if (!user) return <Login/>;
+  console.log(user);
+  if (!endsWith)
   if (error) return <h1>{error}</h1>;
   if (loading) return <h1>Loading the schedule...</h1>
 
