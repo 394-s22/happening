@@ -3,6 +3,8 @@ require('dotenv').config();
 const express = require('express');
 const router = express.Router();
 
+// Define all API routes
+
 router.route('/')
   .get((req, res) => {
     res.status(200).send('<h1>Happening API</h1>');
