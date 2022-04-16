@@ -22,7 +22,7 @@ router.route('/events/new')
 
 router.route('/events/:eid/rsvp')
   .post((req, res) => {
-    res.status(200).send('NEW RSVP TO EVENT');
+    res.status(200).send(`NEW RSVP TO EVENT ${req.params.eid}`);
   })
   .delete((req, res) => {
     res.status(200).send('CANCEL RSVP TO EVENT');
