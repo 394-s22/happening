@@ -4,6 +4,7 @@ import SelectedEvent from "./components/SelectedEvent";
 import Filter from "./components/Filter";
 import { useData, useUserState } from "./utils/firebase.js"
 import Login from "./components/Login";
+import Header from "./components/Header";
 
 const App = () => {
   const [data, loading, error] = useData('/');
@@ -12,9 +13,12 @@ const App = () => {
   const [selectedEvent, setSelectedEvent] = useState();
   const [user] = useUserState();
 
-  if (!user) return <Login/>;
-  console.log(user);
-  if (!user.email.endsWith("northwestern.edu")) return <div>You need to login with northwestern email <Login/></div>
+  if (!user) return <Login />;
+
+  if (!user.email.endsWith("northwestern.edu")) {
+    alert('Please sign in with a university affiliated email address.');
+    return <Login />;
+  }
 
   if (error) return <h1>{error}</h1>;
   if (loading) return <h1>Loading the schedule...</h1>
@@ -35,18 +39,12 @@ const App = () => {
 
   return (
     <div style={{backgroundColor: '#EEE', minHeight: '100vh'}}>
-      <nav style={{backgroundColor: '#4e2a84'}} className="navbar">
-        <div className="container-fluid">
-          <span className="navbar-brand" style={{fontWeight: '800', color: 'white'}} onClick={ () => (selectedEvent) && setSelectedEvent(null) }>
-          {
-            selectedEvent&& (<span style={{ paddingRight: "1em" }}>❮</span>)
-          }
-            Happening
-          </span>
+      <Header
+        showBackClick={ !!selectedEvent }
+        onBackClick={() => setSelectedEvent(null)}
+        user={ user }
+      />
 
-        </div>
-
-      </nav>
       <div className='container'>
         {
         selectedEvent ? (
