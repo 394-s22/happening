@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import Event from "./components/Event";
 import SelectedEvent from "./components/SelectedEvent";
 import Filter from "./components/Filter";
-import { useData, useUserState } from "./utils/firebase.js"
+import { useUserState } from "./utils/firebase"
 import Login from "./components/Login";
 import Header from "./components/Header";
+import { useEvents } from "./utils/api"
 
 const App = () => {
-  const [data, loading, error] = useData('/');
+  const [data, loading, error] = useEvents();
 
   const [filters, setFilters] = useState([]);
   const [selectedEvent, setSelectedEvent] = useState();
@@ -24,14 +25,16 @@ const App = () => {
   if (loading) return <h1>Loading the schedule...</h1>
 
   const events = data.events;
-  const filterOptions = data.filters;
+  console.log(data);
+  const filterOptions = ["food", "free", "drinks", "active", "outdoors", 
+  "indoors", "educational", "nightlife", "entertainment", "shopping" , "music"];
 
   const numElementsShared = (arr1, arr2) => (
     arr2.length === 0 ? 1: arr1.reduce((acc, val) => (arr2.includes(val) ? acc + 1 : acc), 0)
   );
 
   const eventResults = events
-    .map(event => [numElementsShared(event.meta.filters, filters), event])
+    .map(event => [numElementsShared(event.filters, filters), event])
     .filter(([count, _]) => count > 0)
     .sort((a, b) => a[1].time - b[1].time)
     .sort((a, b) => b[0] - a[0])

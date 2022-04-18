@@ -1,7 +1,10 @@
 
 require('dotenv').config();
 const express = require('express');
+const mongoose = require('mongoose');
+
 const routes = require('./src/routes');
+const config = require('./src/config');
 
 // Initialize the express server app
 const app = express();
@@ -18,6 +21,17 @@ app.use((req, res, next) => {
 app.use((req, res, next) => {
   console.log(`${new Date().toISOString()}: ${req.method} ${req.url}`);
   next();
+});
+
+console.log('Trying to connect to database...');
+console.log(config.database);
+mongoose.connect(config.database, config.mongoConfig, err => {
+  if (err) {
+    console.log("Could not connect to database.");
+    console.log(err);
+  } else {
+      console.log(`Connected to ${process.env.DB_NAME}.`);
+  }
 });
 
 // Import and use defined API routes
