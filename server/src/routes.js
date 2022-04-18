@@ -57,7 +57,17 @@ router
   });
 
 router.route("/user/:uid/rsvp").get((req, res) => {
-  res.status(200).send(`RSVP events for ${req.params.uid}`);
+  User.findById(req.params.uid)
+    .then((user) => {
+      Event.find({_id: {$in: user.rsvp}})
+        .then((data) => {
+          res.status(200).send({rsvp: data})
+        })
+    
+    })
+  
 });
+
+
 
 module.exports = router;
