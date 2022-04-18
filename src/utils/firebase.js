@@ -60,7 +60,15 @@ export const useUserState = () => {
   const [user, setUser] = useState();
 
   useEffect(() => {
-    onIdTokenChanged(getAuth(firebase), setUser);
+    onIdTokenChanged(getAuth(firebase), (user) => {
+      console.log(user)
+      fetch('http://localhost:8081/user/login', {method: 'POST', body: {email: user.email}})
+        .then((res) => res.json())
+        .then((data) => {
+          setUser(data);
+        })
+    });
+    
   }, []);
 
   return [user];

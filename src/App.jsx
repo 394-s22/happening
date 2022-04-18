@@ -13,6 +13,7 @@ const App = () => {
   const [filters, setFilters] = useState([]);
   const [selectedEvent, setSelectedEvent] = useState();
   const [user] = useUserState();
+  console.log(user);
 
   if (!user) return <Login />;
 
