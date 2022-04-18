@@ -55,7 +55,6 @@ const App = () => {
       />
 
       <div className='container'>
-        <button onClick={() => setShowRsvp(true)}>My Events</button>
         {
         selectedEvent ? (
           <SelectedEvent event={ selectedEvent } recommendedEvents={ events.filter( event => event.title !== selectedEvent.title) }/> 
