@@ -3,6 +3,7 @@ const express = require("express");
 const router = express.Router();
 
 const Event = require("./schema/Event.js");
+const User = require("./schema/User.js");
 
 // Define all API routes
 
@@ -23,14 +24,62 @@ router.route("/events/new").post((req, res) => {
 router
   .route("/events/:eid/rsvp")
   .post((req, res) => {
-    res.status(200).send(`NEW RSVP TO EVENT ${req.params.eid}`);
+    const { email } = req.body;
+    const eid = req.params.eid;
+
+    User.findOne({ email }).then((user) => {
+      if (!user) {
+        // Create user entry
+        const newUser = {
+          email,
+          rsvp: [eid],
+        };
+        User.create(newUser)
+          .save()
+          .then((user) => {
+            res.status(204).send();
+          });
+        return;
+      }
+
+      const newRsvp = user.rsvp.includes(eid) ? user.rsvp : [eid, ...user.rsvp];
+      User.findByIdAndUpdate(user._id, { rsvp: newRsvp }).then((data) => {
+        res.status(204).send();
+        return;
+      });
+    });
   })
   .delete((req, res) => {
     res.status(200).send("CANCEL RSVP TO EVENT");
   });
 
 router.route("/user/:uid/rsvp").get((req, res) => {
-  res.status(200).send(`RSVP events for ${req.params.uid}`);
+  User.findById(req.params.uid).then((user) => {
+    Event.find({ _id: { $in: user.rsvp } }).then((data) => {
+      res.status(200).send({ rsvp: data });
+    });
+  });
+});
+
+router.route("/user/login").post((req, res) => {
+  console.log(req.body);
+  const { email } = req.body;
+  User.findOne({ email }).then((user) => {
+    if (user) {
+      res.status(200).send({ user });
+      return;
+    }
+    // Create user entry
+    const newUser = {
+      email,
+      rsvp: [],
+    };
+    User.create(newUser)
+      .save()
+      .then((user) => {
+        res.status(200).send({ user });
+      });
+  });
 });
 
 module.exports = router;

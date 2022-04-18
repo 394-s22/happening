@@ -1,13 +1,28 @@
 import React, { useState } from "react";
+import { rsvpToEvent } from "../utils/api";
+import { useUserState } from "../utils/firebase";
 
-const SelectedEvent = ({ event, recommendedEvents}) => {
+const SelectedEvent = ({ event }) => {
   const [rsvpCount, setRsvpCount] = useState(Math.floor(Math.random() * 30));
   const [didRsvp, setDidRsvp] = useState(false);
+  const [user] = useUserState();
 
   let date;
   // Javascript date in ms??!?!?!??! Need to multiply by 1000
   date = new Date();
   date.setTime(event.time * 1000);
+
+  const handleRsvp = () => {
+    if (didRsvp) {
+      setRsvpCount(rsvpCount - 1);
+      setDidRsvp(false);
+      // unrsvp
+    } else {
+      rsvpToEvent(user, event);
+      setRsvpCount(rsvpCount + 1);
+      setDidRsvp(true);
+    }
+  }
 
   return(
       <div>
@@ -33,12 +48,12 @@ const SelectedEvent = ({ event, recommendedEvents}) => {
               didRsvp ? (
               <button 
                 className="btn btn-outline-secondary" 
-                onClick={() => {setRsvpCount(rsvpCount - 1); setDidRsvp(false)}}
+                onClick={() => handleRsvp()}
               >Cancel RSVP</button>
               ) : (
                 <button 
                   className="btn btn-secondary" 
-                  onClick={() => {setRsvpCount(rsvpCount + 1); setDidRsvp(true)}}
+                  onClick={() => handleRsvp()}
                 >RSVP Now</button>
               )
             }

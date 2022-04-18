@@ -60,7 +60,24 @@ export const useUserState = () => {
   const [user, setUser] = useState();
 
   useEffect(() => {
-    onIdTokenChanged(getAuth(firebase), setUser);
+    onIdTokenChanged(getAuth(firebase), (user) => {
+      const options = {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: user.email
+        }),
+      };
+      // TODO: WAY TOO MANY REQUESTS
+      fetch('https://cs394-happening.herokuapp.com/user/login', options)
+        .then((res) => res.json())
+        .then((data) => {
+          setUser(data.user);
+        })
+    });
+    
   }, []);
 
   return [user];
