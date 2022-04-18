@@ -28,4 +28,9 @@ router.route('/events/:eid/rsvp')
     res.status(200).send('CANCEL RSVP TO EVENT');
   });
 
+router.route('/user/:uid/rsvp')
+  .get((req, res) => {
+    res.status(200).send(`RSVP events for ${req.params.uid}`);
+  });
+
 module.exports = router;
