@@ -71,7 +71,7 @@ export const useUserState = () => {
         }),
       };
       // TODO: WAY TOO MANY REQUESTS
-      fetch('http://localhost:8081/user/login', options)
+      fetch('https://cs394-happening.herokuapp.com/user/login', options)
         .then((res) => res.json())
         .then((data) => {
           setUser(data.user);

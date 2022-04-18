@@ -34,7 +34,7 @@ export const useUserRsvpEvents = (user) => {
   useEffect(() => {
     const abortController = new AbortController();
 
-    fetch(`http://localhost:8081/user/${user._id}/rsvp`, {signal: abortController.signal})
+    fetch(`https://cs394-happening.herokuapp.com/user/${user._id}/rsvp`, {signal: abortController.signal})
       .then((res) => res.json())
       .then((data) => {
         setData(data.rsvp);
@@ -62,7 +62,7 @@ export const rsvpToEvent = (user, event) => {
       email: user.email
     }),
   };
-  fetch(`http://localhost:8081/events/${event._id}/rsvp`, options)
+  fetch(`https://cs394-happening.herokuapp.com/events/${event._id}/rsvp`, options)
     .then((res) => {
       if (!res.ok) console.log('Not okay', res);
     });
