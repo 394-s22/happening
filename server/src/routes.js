@@ -3,6 +3,8 @@ require('dotenv').config();
 const express = require('express');
 const router = express.Router();
 
+const Event = require('./schema/Event.js');
+
 // Define all API routes
 
 router.route('/')

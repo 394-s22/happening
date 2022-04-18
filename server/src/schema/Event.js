@@ -25,21 +25,29 @@ const EventSchema = new Schema({
         type: Schema.Types.String,
         required: false
     },
-    meta: {
-        type: Schema.Types.Object,
-        required: true
-        
+    
+    age: {
+        type: Schema.Types.String,
+        required: false
     },
+    
+    filters:[{
+        type: Schema.Types.String,
+        required: true
+    }]
+
 
 });
-AccountSchema.statics.create = function(obj) {
-    const Account = mongoose.model("Account", AccountSchema);
-    const account = new Account();
-    account.email = obj.email;
-    account.password = obj.password;
-    account.communities = obj.communities;
-    account.upvotes = obj.upvotes;
-    account.downvotes = obj.downvotes;
-    return account;
+EventSchema.statics.create = function(obj) {
+    const Event = mongoose.model("Event", EventSchema);
+    const event = new Event();
+    event.title = obj.title;
+    event.location = obj.location;
+    event.time = obj.time;
+    event.description = obj.description;
+    event.pictureUrl = obj.pictureUrl;
+    event.age = obj.age;
+    event.filters = obj.filters;
+    return event;
 }
-module.exports = mongoose.model("Account", AccountSchema);
+module.exports = mongoose.model("Event", EventSchema);
