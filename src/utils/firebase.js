@@ -61,11 +61,20 @@ export const useUserState = () => {
 
   useEffect(() => {
     onIdTokenChanged(getAuth(firebase), (user) => {
-      console.log(user)
-      fetch('http://localhost:8081/user/login', {method: 'POST', body: {email: user.email}})
+      const options = {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: user.email
+        }),
+      };
+      // TODO: WAY TOO MANY REQUESTS
+      fetch('http://localhost:8081/user/login', options)
         .then((res) => res.json())
         .then((data) => {
-          setUser(data);
+          setUser(data.user);
         })
     });
     

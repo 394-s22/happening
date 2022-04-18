@@ -24,7 +24,6 @@ router.route("/events/new").post((req, res) => {
 router
   .route("/events/:eid/rsvp")
   .post((req, res) => {
-    console.log(req);
     const { email } = req.body;
     const eid = req.params.eid;
 
@@ -63,6 +62,7 @@ router.route("/user/:uid/rsvp").get((req, res) => {
 });
 
 router.route("/user/login").post((req, res) => {
+  console.log(req.body);
   const { email } = req.body;
   User.findOne({ email }).then((user) => {
     if (user) {

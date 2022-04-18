@@ -6,6 +6,7 @@ import { useUserState } from "./utils/firebase"
 import Login from "./components/Login";
 import Header from "./components/Header";
 import { useEvents } from "./utils/api"
+import MyEvents from "./components/MyEvents";
 
 const App = () => {
   const [data, loading, error] = useEvents();
@@ -13,7 +14,8 @@ const App = () => {
   const [filters, setFilters] = useState([]);
   const [selectedEvent, setSelectedEvent] = useState();
   const [user] = useUserState();
-  console.log(user);
+
+  const [showRsvp, setShowRsvp] = useState(false);
 
   if (!user) return <Login />;
 
@@ -41,15 +43,19 @@ const App = () => {
     .sort((a, b) => b[0] - a[0])
     .map(([_, event]) => event);
 
+  if (showRsvp) return <MyEvents onBackClick={() => setShowRsvp(false)} user={user}/>
+
   return (
     <div style={{backgroundColor: '#EEE', minHeight: '100vh'}}>
       <Header
         showBackClick={ !!selectedEvent }
         onBackClick={() => setSelectedEvent(null)}
         user={ user }
+        onSavedClick={() => setShowRsvp(true)}
       />
 
       <div className='container'>
+        <button onClick={() => setShowRsvp(true)}>My Events</button>
         {
         selectedEvent ? (
           <SelectedEvent event={ selectedEvent } recommendedEvents={ events.filter( event => event.title !== selectedEvent.title) }/> 
