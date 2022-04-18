@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Event from "./components/Event";
 import SelectedEvent from "./components/SelectedEvent";
 import Filter from "./components/Filter";
-import { useData, useUserState } from "./utils/firebase"
+import { useUserState } from "./utils/firebase"
 import Login from "./components/Login";
 import Header from "./components/Header";
 import { useEvents } from "./utils/api"
