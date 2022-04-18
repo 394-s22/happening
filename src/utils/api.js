@@ -8,13 +8,15 @@ export const useEvents = () => {
   useEffect(() => {
     const abortController = new AbortController();
 
-    fetch('https://cs394-happening.herokuapp.com/', {signal: abortController.signal})
+    fetch('https://cs394-happening.herokuapp.com/events', {signal: abortController.signal})
+      .then( (res) => res.json())
       .then((res) => {
+        console.log(res)
         setLoading(false);
         setData(res);
         setError(null);
       })
-      .catch((err) => setError(err)) 
+      .catch((err) => setError(err.toString())) 
 
     return () => {
       abortController.abort();

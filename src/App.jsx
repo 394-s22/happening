@@ -24,7 +24,7 @@ const App = () => {
   if (error) return <h1>{error}</h1>;
   if (loading) return <h1>Loading the schedule...</h1>
 
-  const events = data;
+  const events = data.events;
   console.log(data);
   const filterOptions = ["food", "free", "drinks", "active", "outdoors", 
   "indoors", "educational", "nightlife", "entertainment", "shopping" , "music"];

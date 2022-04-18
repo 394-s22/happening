@@ -12,7 +12,7 @@ router.route("/").get((req, res) => {
 
 router.route("/events").get((req, res) => {
   Event.find({}).then((data) => {
-    res.status(200).send(data);
+    res.status(200).send({ events: data });
   });
 });
 
