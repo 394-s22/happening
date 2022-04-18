@@ -24,9 +24,10 @@ router.route("/events/new").post((req, res) => {
 router
   .route("/events/:eid/rsvp")
   .post((req, res) => {
+    console.log(req)
     const { email } = req.body;
     const eid = req.params.eid;
-    
+
     User.findOne({ email })
       .then((user) => {
         if (!user) {

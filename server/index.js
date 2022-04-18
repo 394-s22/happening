@@ -23,6 +23,8 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use(express.json())
+
 console.log('Trying to connect to database...');
 console.log(config.database);
 mongoose.connect(config.database, config.mongoConfig, err => {
