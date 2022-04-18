@@ -12,7 +12,7 @@ router.route('/')
 
 router.route('/events')
   .get((req, res) => {
-    res.status(200).send('GET ALL EVENTS');
+    res.status(200).send('GET ALL EVENTS NOW');
   });
 
 router.route('/events/new')
