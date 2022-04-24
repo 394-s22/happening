@@ -61,6 +61,8 @@ export const useUserState = () => {
 
   useEffect(() => {
     onIdTokenChanged(getAuth(firebase), (user) => {
+      if (!user) setUser(user);
+
       const options = {
         method: 'POST',
         headers: {
