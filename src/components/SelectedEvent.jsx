@@ -38,7 +38,14 @@ const SelectedEvent = ({ event }) => {
               )
             }
             {
-              event.groupSize && <div>👥: { event.groupSize }</div>
+              event.location && (
+                <div>{ event.location }</div>
+              )
+            }
+            {
+              event.groupSize && (
+                <div>{ `👥: ${ event.groupSize }` }</div>
+              )
             }
           </div> 
           <div>{ event.description }</div>
