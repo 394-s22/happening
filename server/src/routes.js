@@ -1,4 +1,5 @@
 require("dotenv").config();
+const { wait } = require("@testing-library/user-event/dist/utils");
 const express = require("express");
 const router = express.Router();
 
@@ -43,11 +44,11 @@ router.route("/events/:eid/rsvp/:uid")
 
     
     if (!user.rsvp.includes(eid)) {
-      User.findByIdAndUpdate(uid, { rsvp: [eid, ...user.rsvp] });
+      await User.findByIdAndUpdate(uid, { rsvp: [eid, ...user.rsvp] });
     }
 
     if (!event.rsvp.includes(uid)) {
-      User.findByIdAndUpdate(eid, { rsvp: [uid, ...event.rsvp] });
+      await Event.findByIdAndUpdate(eid, { rsvp: [uid, ...event.rsvp] });
     }
 
     res.status(204).send();
