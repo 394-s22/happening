@@ -55,9 +55,20 @@ export const useUserRsvpEvents = (user) => {
 }
 
 export const rsvpToEvent = (user, event) => {
-  console.log(user, event);
+  
   const options = {
     method: 'POST',
+  };
+  fetch(`${BASE_URL}/events/${event._id}/rsvp/${user._id}`, options)
+    .then((res) => {
+      if (!res.ok) console.log('Not okay', res);
+    });
+}
+
+export const cancelRsvpToEvent = (user, event) => {
+  
+  const options = {
+    method: 'DELETE',
   };
   fetch(`${BASE_URL}/events/${event._id}/rsvp/${user._id}`, options)
     .then((res) => {

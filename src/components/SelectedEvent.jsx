@@ -1,5 +1,6 @@
+import userEvent from "@testing-library/user-event";
 import React, { useState, useEffect} from "react";
-import { rsvpToEvent } from "../utils/api";
+import { rsvpToEvent, cancelRsvpToEvent } from "../utils/api";
 import { useUserState } from "../utils/firebase";
 
 
@@ -21,6 +22,7 @@ const SelectedEvent = ({ event }) => {
 
   const handleRsvp = () => {
     if (didRsvp) {
+      cancelRsvpToEvent(user, event);
       setRsvpCount(rsvpCount - 1);
       setDidRsvp(false);
       // unrsvp

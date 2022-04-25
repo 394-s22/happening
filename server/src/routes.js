@@ -44,6 +44,7 @@ router.route("/events/:eid/rsvp/:uid")
 
     
     if (!user.rsvp.includes(eid)) {
+
       await User.findByIdAndUpdate(uid, { rsvp: [eid, ...user.rsvp] });
     }
 
@@ -54,10 +55,36 @@ router.route("/events/:eid/rsvp/:uid")
     res.status(204).send();
     return;
   })
-  .delete((req, res) => {
-    res.status(200).send("CANCEL RSVP TO EVENT");
-  });
+  .delete(async (req, res) => {
+    const { eid, uid } = req.params;
 
+    const event = await Event.findById(eid);
+    const user = await User.findById(uid);
+
+    if (!event) {
+      res.status(404).send({ message: `Event with id '${eid}' does not exist`});
+      return;
+    }
+
+    if (!user) {
+      res.status(404).send({ message: `User with id '${uid}' does not exist`});
+      return;
+    }
+
+    
+    if (user.rsvp.includes(eid)) {
+
+      await User.findByIdAndUpdate(uid, { rsvp: user.rsvp.filter((rsvp) => rsvp !== eid)});
+    }
+
+    if (event.rsvp.includes(uid)) {
+      await Event.findByIdAndUpdate(eid, { rsvp: event.rsvp.filter((rsvp) => rsvp !== uid)});
+    }
+
+    res.status(204).send();
+    return;
+  })
+  
 router.route("/user/:uid/rsvp")
   .get((req, res) => {
     User.findById(req.params.uid).then((user) => {
