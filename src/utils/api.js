@@ -11,18 +11,21 @@ export const useEvents = () => {
   useEffect(() => {
     const abortController = new AbortController();
 
-    fetch(`${BASE_URL}/events`, {signal: abortController.signal})
-      .then( (res) => res.json())
-      .then((res) => {
-        console.log(res)
-        setLoading(false);
-        setData(res);
-        setError(null);
-      })
-      .catch((err) => setError(err.toString())) 
+    const interval = setInterval(() => {
+      console.log('Fetching new data');
+      fetch(`${BASE_URL}/events`, {signal: abortController.signal})
+        .then( (res) => res.json())
+        .then((res) => {
+          setData({...res});
+          setLoading(false);
+          setError(null);
+        })
+        .catch((err) => setError(err.toString())) 
+    }, 1000);
 
     return () => {
       abortController.abort();
+      clearInterval(interval);
     }
   }, [])
 

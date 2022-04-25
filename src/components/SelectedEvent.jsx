@@ -9,9 +9,8 @@ const SelectedEvent = ({ event }) => {
   const [user] = useUserState();
 
   useEffect(() => {
-    if (user &&event.rsvp.includes(user._id)){
-      setDidRsvp(true)
-    }
+    setRsvpCount(event.rsvp.length)
+    setDidRsvp(user && event.rsvp.includes(user._id))
   }, [user, event])
 
   let date;

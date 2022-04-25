@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Event from "./components/Event";
 import SelectedEvent from "./components/SelectedEvent";
 import Filter from "./components/Filter";
@@ -20,6 +20,12 @@ const App = () => {
   const [showRsvp, setShowRsvp] = useState(false);
   const [showAddEvent, setShowAddEvent] = useState(false);
 
+  useEffect(() => {
+    if (data && data.events && selectedEvent) {
+      setSelectedEvent(data.events.filter((event) => event._id === selectedEvent._id)[0])
+    }
+  }, [data, selectedEvent])
+
   if (!user) return <Login />;
 
   if (!user.email.endsWith("northwestern.edu")) {
@@ -31,7 +37,6 @@ const App = () => {
   if (loading) return <h1>Loading the schedule...</h1>
 
   const events = data.events;
-  console.log(data);
   const filterOptions = ["food", "free", "drinks", "active", "outdoors", 
   "indoors", "educational", "nightlife", "entertainment", "shopping" , "music"];
 
