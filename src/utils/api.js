@@ -58,14 +58,8 @@ export const rsvpToEvent = (user, event) => {
   console.log(user, event);
   const options = {
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      email: user.email
-    }),
   };
-  fetch(`${BASE_URL}/events/${event._id}/rsvp`, options)
+  fetch(`${BASE_URL}/events/${event._id}/rsvp/${user._id}`, options)
     .then((res) => {
       if (!res.ok) console.log('Not okay', res);
     });

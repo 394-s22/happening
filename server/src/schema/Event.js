@@ -25,19 +25,21 @@ const EventSchema = new Schema({
         type: Schema.Types.String,
         required: false
     },
-    
     age: {
         type: Schema.Types.String,
         required: false
     },
-    
-    filters:[{
+    filters: [{
         type: Schema.Types.String,
         required: true
-    }]
-
-
+    }],
+    rsvp: [{
+        type: Schema.Types.ObjectId,
+        ref: "User",
+        required: true
+    }], 
 });
+
 EventSchema.statics.create = function(obj) {
     const Event = mongoose.model("Event", EventSchema);
     const event = new Event();
@@ -48,6 +50,8 @@ EventSchema.statics.create = function(obj) {
     event.pictureUrl = obj.pictureUrl;
     event.age = obj.age;
     event.filters = obj.filters;
+    event.rsvp = [];
     return event;
 }
+
 module.exports = mongoose.model("Event", EventSchema);
