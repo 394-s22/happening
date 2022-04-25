@@ -1,5 +1,8 @@
 import { useEffect, useState } from 'react';
 
+//const BASE_URL = 'https://cs394-happening.herokuapp.com';
+const BASE_URL = 'http://localhost:8081';
+
 export const useEvents = () => {
   const [data, setData] = useState();
   const [loading, setLoading] = useState(true);
@@ -8,7 +11,7 @@ export const useEvents = () => {
   useEffect(() => {
     const abortController = new AbortController();
 
-    fetch('https://cs394-happening.herokuapp.com/events', {signal: abortController.signal})
+    fetch(`${BASE_URL}/events`, {signal: abortController.signal})
       .then( (res) => res.json())
       .then((res) => {
         console.log(res)
@@ -34,7 +37,7 @@ export const useUserRsvpEvents = (user) => {
   useEffect(() => {
     const abortController = new AbortController();
 
-    fetch(`https://cs394-happening.herokuapp.com/user/${user._id}/rsvp`, {signal: abortController.signal})
+    fetch(`${BASE_URL}/user/${user._id}/rsvp`, {signal: abortController.signal})
       .then((res) => res.json())
       .then((data) => {
         setData(data.rsvp);
@@ -62,7 +65,7 @@ export const rsvpToEvent = (user, event) => {
       email: user.email
     }),
   };
-  fetch(`https://cs394-happening.herokuapp.com/events/${event._id}/rsvp`, options)
+  fetch(`${BASE_URL}/events/${event._id}/rsvp`, options)
     .then((res) => {
       if (!res.ok) console.log('Not okay', res);
     });
