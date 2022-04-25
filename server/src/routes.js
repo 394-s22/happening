@@ -1,5 +1,4 @@
 require("dotenv").config();
-const { wait } = require("@testing-library/user-event/dist/utils");
 const express = require("express");
 const router = express.Router();
 
