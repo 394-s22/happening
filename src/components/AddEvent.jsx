@@ -96,19 +96,21 @@ const AddEvent = ({showAddEvent, setShowAddEvent, filterOptions}) => {
                             id="pictureinput" 
                             aria-describedby="enterpicture"></input>
                     </div>
-                    <ul style={{listStyle: "None"}}>
+                    <ul style={{listStyle: "None", display: "flex", flexWrap: "wrap", padding: "0em"}}>
                         {filterOptions.map((name, index) => {
                         return (
-                            <li key={index}>
-                            <div>
+                            <li key={index} style={{margin: "0.5em"}}>
+                            <div className="formCheck">
                                 <div>
                                 <input
+                                    className="formCheckInput"
                                     type="checkbox"
                                     id={`custom-checkbox-${index}`}
                                     name={name}
                                     value={name}
                                     checked={checkedState[index]}
                                     onChange={() => handleOnChange(index)}
+                                    style={{marginRight: "1em"}}
                                 />
                                 <label htmlFor={`custom-checkbox-${index}`}>{name}</label>
                                 </div>
@@ -123,7 +125,7 @@ const AddEvent = ({showAddEvent, setShowAddEvent, filterOptions}) => {
             <Button variant="secondary" onClick={handleClose}>
                 Close
             </Button>
-            <Button variant="primary" onClick={handleClose}>
+            <Button variant="primary" onClick={handleClose} className="btn" style={{backgroundColor: "#4e2a84", color: "#ffffff"}}>
                 Submit
             </Button>
             </Modal.Footer>
