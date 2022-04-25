@@ -1,4 +1,3 @@
-import userEvent from "@testing-library/user-event";
 import React, { useState, useEffect} from "react";
 import { rsvpToEvent, cancelRsvpToEvent } from "../utils/api";
 import { useUserState } from "../utils/firebase";
