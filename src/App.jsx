@@ -74,7 +74,7 @@ const App = () => {
         }
       </div>
 
-      <AddEvent showAddEvent={showAddEvent} setShowAddEvent={setShowAddEvent}/>
+      <AddEvent showAddEvent={showAddEvent} setShowAddEvent={setShowAddEvent} filterOptions={filterOptions}/>
     </div>
   );
 }
