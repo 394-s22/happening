@@ -5,8 +5,10 @@ import Filter from "./components/Filter";
 import { useUserState } from "./utils/firebase"
 import Login from "./components/Login";
 import Header from "./components/Header";
+import AddEvent from "./components/AddEvent"
 import { useEvents } from "./utils/api"
 import MyEvents from "./components/MyEvents";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const App = () => {
   const [data, loading, error] = useEvents();
@@ -16,6 +18,7 @@ const App = () => {
   const [user] = useUserState();
 
   const [showRsvp, setShowRsvp] = useState(false);
+  const [showAddEvent, setShowAddEvent] = useState(false);
 
   if (!user) return <Login />;
 
@@ -48,7 +51,7 @@ const App = () => {
   return (
     <div style={{backgroundColor: '#EEE', minHeight: '100vh'}}>
       <Header
-        showBackClick={ !!selectedEvent }
+        showBackClick={ selectedEvent }
         onBackClick={() => setSelectedEvent(null)}
         user={ user }
         onSavedClick={() => setShowRsvp(true)}
@@ -60,6 +63,7 @@ const App = () => {
           <SelectedEvent event={ selectedEvent } recommendedEvents={ events.filter( event => event.title !== selectedEvent.title) }/> 
         ) :
         <>
+          <button onClick={() => setShowAddEvent(true)}>Add Event</button>
           <div style={{ margin: '.4em'}}>
             <Filter filters={ filters } setFilters={ setFilters } filterOptions={ filterOptions } />
           </div>
@@ -69,6 +73,8 @@ const App = () => {
         </>
         }
       </div>
+
+      <AddEvent showAddEvent={showAddEvent} setShowAddEvent={setShowAddEvent}/>
     </div>
   );
 }
