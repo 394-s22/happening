@@ -1,4 +1,5 @@
 require("dotenv").config();
+const { wait } = require("@testing-library/user-event/dist/utils");
 const express = require("express");
 const router = express.Router();
 
@@ -22,35 +23,68 @@ router.route("/events/new").post((req, res) => {
 });
 
 router
-  .route("/events/:eid/rsvp")
-  .post((req, res) => {
-    const { email } = req.body;
-    const eid = req.params.eid;
+  .route("/events/:eid/rsvp/:uid")
+  .post(async (req, res) => {
+    const { eid, uid } = req.params;
 
-    User.findOne({ email }).then((user) => {
-      if (!user) {
-        // Create user entry
-        const newUser = {
-          email,
-          rsvp: [eid],
-        };
-        User.create(newUser)
-          .save()
-          .then((user) => {
-            res.status(204).send();
-          });
-        return;
-      }
+    const event = await Event.findById(eid);
+    const user = await User.findById(uid);
 
-      const newRsvp = user.rsvp.includes(eid) ? user.rsvp : [eid, ...user.rsvp];
-      User.findByIdAndUpdate(user._id, { rsvp: newRsvp }).then((data) => {
-        res.status(204).send();
-        return;
-      });
-    });
+    if (!event) {
+      res
+        .status(404)
+        .send({ message: `Event with id '${eid}' does not exist` });
+      return;
+    }
+
+    if (!user) {
+      res.status(404).send({ message: `User with id '${uid}' does not exist` });
+      return;
+    }
+
+    if (!user.rsvp.includes(eid)) {
+      await User.findByIdAndUpdate(uid, { rsvp: [eid, ...user.rsvp] });
+    }
+
+    if (!event.rsvp.includes(uid)) {
+      await Event.findByIdAndUpdate(eid, { rsvp: [uid, ...event.rsvp] });
+    }
+
+    res.status(204).send();
+    return;
   })
-  .delete((req, res) => {
-    res.status(200).send("CANCEL RSVP TO EVENT");
+  .delete(async (req, res) => {
+    const { eid, uid } = req.params;
+
+    const event = await Event.findById(eid);
+    const user = await User.findById(uid);
+
+    if (!event) {
+      res
+        .status(404)
+        .send({ message: `Event with id '${eid}' does not exist` });
+      return;
+    }
+
+    if (!user) {
+      res.status(404).send({ message: `User with id '${uid}' does not exist` });
+      return;
+    }
+
+    if (user.rsvp.includes(eid)) {
+      await User.findByIdAndUpdate(uid, {
+        rsvp: user.rsvp.filter((rsvp) => rsvp.toString() !== eid),
+      });
+    }
+
+    if (event.rsvp.includes(uid)) {
+      await Event.findByIdAndUpdate(eid, {
+        rsvp: event.rsvp.filter((rsvp) => rsvp.toString() !== uid),
+      });
+    }
+
+    res.status(204).send();
+    return;
   });
 
 router.route("/user/:uid/rsvp").get((req, res) => {

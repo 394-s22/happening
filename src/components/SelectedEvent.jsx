@@ -1,11 +1,18 @@
-import React, { useState } from "react";
-import { rsvpToEvent } from "../utils/api";
+import React, { useState, useEffect} from "react";
+import { rsvpToEvent, cancelRsvpToEvent } from "../utils/api";
 import { useUserState } from "../utils/firebase";
 
+
 const SelectedEvent = ({ event }) => {
-  const [rsvpCount, setRsvpCount] = useState(Math.floor(Math.random() * 30));
+  const [rsvpCount, setRsvpCount] = useState(event.rsvp.length);
   const [didRsvp, setDidRsvp] = useState(false);
   const [user] = useUserState();
+
+  useEffect(() => {
+    if (user &&event.rsvp.includes(user._id)){
+      setDidRsvp(true)
+    }
+  }, [user, event])
 
   let date;
   // Javascript date in ms??!?!?!??! Need to multiply by 1000
@@ -14,6 +21,7 @@ const SelectedEvent = ({ event }) => {
 
   const handleRsvp = () => {
     if (didRsvp) {
+      cancelRsvpToEvent(user, event);
       setRsvpCount(rsvpCount - 1);
       setDidRsvp(false);
       // unrsvp
