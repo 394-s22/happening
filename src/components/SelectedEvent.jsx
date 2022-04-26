@@ -2,6 +2,7 @@ import React, { useState, useEffect} from "react";
 import { rsvpToEvent, cancelRsvpToEvent } from "../utils/api";
 import { useUserState } from "../utils/firebase";
 import styles from "./SelectedEvents.module.css";
+import DateView from "./DateView";
 
 
 const SelectedEvent = ({ event }) => {
@@ -41,9 +42,7 @@ const SelectedEvent = ({ event }) => {
           <div>
             <h4>{ event.title }</h4>
             {
-              date && (
-                <div>{ date.toLocaleString() }</div>
-              )
+              date && (<DateView date={date}/>)
             }
             {
               event.location && (

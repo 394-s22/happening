@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./event.module.css";
+import DateView from "./DateView";
 
 const Event = ({ event, onClick }) => {
   let date;
@@ -18,9 +19,7 @@ const Event = ({ event, onClick }) => {
         <div style={{marginBottom: '.4em'}}>
           <h4 style={{margin: '0'}}>{ event.title }</h4>
           {
-            date && (
-              <div>{ date.toLocaleString() }</div>
-            )
+            date && (<DateView date={date}/>)
           }
           {
             event.location && (
