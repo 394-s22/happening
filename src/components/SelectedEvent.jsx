@@ -41,6 +41,15 @@ const SelectedEvent = ({ event }) => {
         <div>
           <div>
             <h4>{ event.title }</h4>
+            <div>
+              {
+                 event.filters.map((option, idx) => (
+                  <span key={idx} style={{margin: ".2em", border: 'none'}} className={'badge rounded-pill bg-secondary'}>
+                    { option }
+                  </span>
+                ))
+              }
+            </div>
             {
               date && (<DateView date={date}/>)
             }
@@ -55,7 +64,7 @@ const SelectedEvent = ({ event }) => {
               )
             }
           </div> 
-          <div>{ event.description }</div>
+          <div style={{lineHeight:'1.1em'}}>{ event.description }</div>
           <div style={{padding:"1em", backgroundColor:"#d9d9d9", margin:".5em", width:"90%", borderRadius:"15px"}}>
             <p style={{marginBottom:"0.25em"}}>Number of attendees { rsvpCount }</p>
             {
