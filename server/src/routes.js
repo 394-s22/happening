@@ -18,7 +18,16 @@ router.route("/events").get((req, res) => {
 });
 
 router.route("/events/new").post((req, res) => {
-  res.status(200).send("MAKE NEW EVENT");
+  const newEvent = new Event(req.body);
+  newEvent.save(err => { 
+    if (err) {
+      res
+        .status(500)
+        .send({ message: 'Could not create event.'});
+        return;
+    }
+  })
+  res.status(200).send("MADE NEW EVENT");
 });
 
 router
