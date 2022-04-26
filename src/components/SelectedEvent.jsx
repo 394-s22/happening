@@ -1,6 +1,7 @@
 import React, { useState, useEffect} from "react";
 import { rsvpToEvent, cancelRsvpToEvent } from "../utils/api";
 import { useUserState } from "../utils/firebase";
+import styles from "./SelectedEvents.module.css";
 
 
 const SelectedEvent = ({ event }) => {
@@ -34,7 +35,7 @@ const SelectedEvent = ({ event }) => {
   return(
       <div>
         <div>
-          <img src={ event.pictureUrl } alt="Event" style={{ display: "block", width:"80%", margin: '0.5em auto', borderRadius: '15px'}}/>
+          <img src={ event.pictureUrl } alt="Event" className={styles.eventImage}/>
         </div>
         <div>
           <div>
