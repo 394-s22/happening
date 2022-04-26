@@ -51,6 +51,10 @@ const App = () => {
     .sort((a, b) => b[0] - a[0])
     .map(([_, event]) => event);
 
+  const getFilterMatches = (event) => (
+    filters.filter((option) => event.filters.includes(option))
+  );
+
   if (showRsvp) return <MyEvents onBackClick={() => setShowRsvp(false)} user={user}/>
 
   return (
@@ -70,10 +74,23 @@ const App = () => {
         <>
           <button onClick={() => setShowAddEvent(true)}>Add Event</button>
           <div style={{ margin: '.4em'}}>
-            <Filter filters={ filters } setFilters={ setFilters } filterOptions={ filterOptions } />
+            <Filter
+              filters={ filters }
+              setFilters={ setFilters }
+              filterOptions={ filterOptions }
+            />
           </div>
           <div>
-            { eventResults.map((event, index) => <Event onClick={ () => setSelectedEvent(event) } event={ event } key={ index }/>) }
+            { 
+              eventResults.map((event, index) => (
+                <Event
+                  onClick={ () => setSelectedEvent(event) }
+                  event={ event }
+                  key={ index }
+                  filterMatches={ getFilterMatches(event) }
+                />
+              )) 
+            }
           </div>
         </>
         }
