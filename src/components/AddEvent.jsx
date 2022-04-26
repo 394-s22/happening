@@ -40,16 +40,20 @@ const AddEvent = ({showAddEvent, setShowAddEvent, filterOptions}) => {
     }
 
     const handleSubmit = () => {
+        const epoch = (date) => {
+            return Date.parse(date)
+          }
+
         const newEvent = {
             "title": title,
             "location": location,
-            "time": time,
+            "time": epoch(time),
             "description": description,
             "pictureUrl": picture,
             "filters": filters
         }
         const xhttp = new XMLHttpRequest();
-        xhttp.open("POST", "http://localhost:8081/events/new", false);
+        xhttp.open("POST", "https://cs394-happening.herokuapp.com/events/new", false);
         xhttp.setRequestHeader("Content-type", "application/json;charset=UTF-8");
         xhttp.send(JSON.stringify(newEvent));
 
@@ -88,7 +92,7 @@ const AddEvent = ({showAddEvent, setShowAddEvent, filterOptions}) => {
                     <div>
                         <label htmlFor="timeinput" className="form-label">Time</label>
                         <input 
-                            type="text" 
+                            type="datetime-local" 
                             value={time} 
                             onChange={(e)=>setTime(e.target.value)}
                             className="form-control" 

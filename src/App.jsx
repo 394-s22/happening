@@ -60,6 +60,7 @@ const App = () => {
         onBackClick={() => setSelectedEvent(null)}
         user={ user }
         onSavedClick={() => setShowRsvp(true)}
+        onAddClick={() => setShowAddEvent(true)}
       />
 
       <div className='container'>
@@ -68,7 +69,6 @@ const App = () => {
           <SelectedEvent event={ selectedEvent } recommendedEvents={ events.filter( event => event.title !== selectedEvent.title) }/> 
         ) :
         <>
-          <button onClick={() => setShowAddEvent(true)}>Add Event</button>
           <div style={{ margin: '.4em'}}>
             <Filter filters={ filters } setFilters={ setFilters } filterOptions={ filterOptions } />
           </div>
