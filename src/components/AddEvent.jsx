@@ -41,7 +41,7 @@ const AddEvent = ({showAddEvent, setShowAddEvent, filterOptions}) => {
 
     const handleSubmit = () => {
         const epoch = (date) => {
-            return Date.parse(date)
+            return Date.parse(date) / 1000;
           }
 
         const newEvent = {
