@@ -38,6 +38,29 @@ const AddEvent = ({showAddEvent, setShowAddEvent, filterOptions}) => {
         console.log(filters)
         setShowAddEvent(false)
     }
+
+    const handleSubmit = () => {
+        const epoch = (date) => {
+            return Date.parse(date) / 1000;
+          }
+
+        const newEvent = {
+            "title": title,
+            "location": location,
+            "time": epoch(time),
+            "description": description,
+            "pictureUrl": picture,
+            "filters": filters
+        }
+        const xhttp = new XMLHttpRequest();
+        xhttp.open("POST", "https://cs394-happening.herokuapp.com/events/new", false);
+        xhttp.setRequestHeader("Content-type", "application/json;charset=UTF-8");
+        xhttp.send(JSON.stringify(newEvent));
+
+        alert('Successfully added new event!');
+
+        handleClose();
+    }
     
     return(
         <Modal show={showAddEvent} onHide={handleClose} backdrop="static">
@@ -69,7 +92,7 @@ const AddEvent = ({showAddEvent, setShowAddEvent, filterOptions}) => {
                     <div>
                         <label htmlFor="timeinput" className="form-label">Time</label>
                         <input 
-                            type="text" 
+                            type="datetime-local" 
                             value={time} 
                             onChange={(e)=>setTime(e.target.value)}
                             className="form-control" 
@@ -125,7 +148,7 @@ const AddEvent = ({showAddEvent, setShowAddEvent, filterOptions}) => {
             <Button variant="secondary" onClick={handleClose}>
                 Close
             </Button>
-            <Button variant="primary" onClick={handleClose} className="btn" style={{backgroundColor: "#4e2a84", color: "#ffffff"}}>
+            <Button variant="primary" onClick={handleSubmit} className="btn" style={{backgroundColor: "#4e2a84", color: "#ffffff"}}>
                 Submit
             </Button>
             </Modal.Footer>
