@@ -36,7 +36,7 @@ if (window.location.hostname === "localhost") {
   signInWithCredential(
     auth,
     GoogleAuthProvider.credential(
-      '{"sub": "qEvli4msW0eDz5mSVO6j3W7i8w1k", "email": "tester@gmail.com", "displayName":"Test User", "email_verified": true}'
+      '{"sub": "z3dVQ0dpAhTmryaiFdxkQf7Us33Z", "email": "testuser2022@u.northwestern.edu", "displayName":"Test User", "email_verified": true}'
     )
   );
 }
