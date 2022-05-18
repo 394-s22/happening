@@ -17,7 +17,7 @@ const Header = ({ showBackClick, onBackClick, user, onSavedClick, onAddClick }) 
             <span style={{ paddingRight: "1em" }}>❮</span>
           )
         }
-        Happening
+        Happened
       </span>
       <div>
         <button onClick={() => onAddClick()} style={{ color: '#ffffff', background: 'none', border: 'none', fontSize: '2em', verticalAlign: 'middle' }}>

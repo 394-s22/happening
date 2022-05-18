@@ -18,7 +18,7 @@ const Login = () => (
         Happening
       </h1>
 
-      <h6 style={{ textAlign: 'center'}}>
+      <h6 data-cy='test' style={{ textAlign: 'center'}}>
         Please sign in with your school affiliated email
       </h6>
 
