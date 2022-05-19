@@ -3,7 +3,6 @@ import {
   getDatabase,
   onValue,
   ref,
-  connectDatabaseEmulator,
 } from "firebase/database";
 import { useEffect, useState } from "react";
 import {
