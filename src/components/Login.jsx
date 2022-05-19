@@ -25,6 +25,7 @@ const Login = () => (
       <button
         onClick={() => signInWithGoogle()}
         className="btn"
+        data-cy="btn-sign-in"
         style={{
           width: '50%',
           color: '#4e2a84',
