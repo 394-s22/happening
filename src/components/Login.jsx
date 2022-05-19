@@ -18,13 +18,14 @@ const Login = () => (
         Happening
       </h1>
 
-      <h6 style={{ textAlign: 'center'}}>
+      <h6 data-cy='test' style={{ textAlign: 'center'}}>
         Please sign in with your school affiliated email
       </h6>
 
       <button
         onClick={() => signInWithGoogle()}
         className="btn"
+        data-cy="btn-sign-in"
         style={{
           width: '50%',
           color: '#4e2a84',

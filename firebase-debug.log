@@ -1,36 +1,52 @@
-[debug] [2022-04-15T01:35:44.964Z] ----------------------------------------------------------------------
-[debug] [2022-04-15T01:35:44.965Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy
-[debug] [2022-04-15T01:35:44.966Z] CLI Version:   10.6.0
-[debug] [2022-04-15T01:35:44.966Z] Platform:      darwin
-[debug] [2022-04-15T01:35:44.966Z] Node Version:  v17.8.0
-[debug] [2022-04-15T01:35:44.969Z] Time:          Thu Apr 14 2022 20:35:44 GMT-0500 (Central Daylight Time)
-[debug] [2022-04-15T01:35:44.969Z] ----------------------------------------------------------------------
+[debug] [2022-05-19T00:06:25.192Z] ----------------------------------------------------------------------
+[debug] [2022-05-19T00:06:25.194Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\sfitc\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js emulators:start --import=./saved-data --export-on-exit
+[debug] [2022-05-19T00:06:25.194Z] CLI Version:   9.12.1
+[debug] [2022-05-19T00:06:25.194Z] Platform:      win32
+[debug] [2022-05-19T00:06:25.194Z] Node Version:  v12.22.6
+[debug] [2022-05-19T00:06:25.196Z] Time:          Wed May 18 2022 19:06:25 GMT-0500 (Central Daylight Time)
+[debug] [2022-05-19T00:06:25.196Z] ----------------------------------------------------------------------
 [debug] 
-[debug] [2022-04-15T01:35:44.971Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
-[debug] [2022-04-15T01:35:45.086Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
-[debug] [2022-04-15T01:35:45.087Z] > authorizing via signed-in user (rutuja.kajave.rk@gmail.com)
-[debug] [2022-04-15T01:35:45.087Z] [iam] checking project cs394-happening for permissions ["firebase.projects.get","firebasehosting.sites.update"]
-[debug] [2022-04-15T01:35:45.087Z] > refreshing access token with scopes: []
-[debug] [2022-04-15T01:35:45.088Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+[debug] [2022-05-19T00:06:25.215Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-05-19T00:06:25.215Z] > authorizing via signed-in user (sfitch16@gmail.com)
+[info] i  emulators: Starting emulators: auth, hosting {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: auth, hosting"}}
+[warn] !  emulators: It seems that you are running multiple instances of the emulator suite for project cs394-happening. This may result in unexpected behavior. 
+[debug] [2022-05-19T00:06:25.256Z] [hub] writing locator at C:\Users\sfitc\AppData\Local\Temp\hub-cs394-happening.json
+[info] i  auth: Importing config from C:\Users\sfitc\Documents\Northwestern\Comp_Sci_394\happening\saved-data\auth_export\config.json {"metadata":{"emulator":{"name":"database"},"message":"Importing config from C:\\Users\\sfitc\\Documents\\Northwestern\\Comp_Sci_394\\happening\\saved-data\\auth_export\\config.json"}}
+[info] i  auth: Importing accounts from C:\Users\sfitc\Documents\Northwestern\Comp_Sci_394\happening\saved-data\auth_export\accounts.json {"metadata":{"emulator":{"name":"database"},"message":"Importing accounts from C:\\Users\\sfitc\\Documents\\Northwestern\\Comp_Sci_394\\happening\\saved-data\\auth_export\\accounts.json"}}
+[debug] [2022-05-19T00:06:28.050Z] > refreshing access token with scopes: []
+[debug] [2022-05-19T00:06:28.050Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
  <request body omitted>
-[debug] [2022-04-15T01:35:45.164Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
-[debug] [2022-04-15T01:35:45.164Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
-[debug] [2022-04-15T01:35:45.206Z] <<< HTTP RESPONSE 200 {"cache-control":"no-cache, no-store, max-age=0, must-revalidate","pragma":"no-cache","date":"Fri, 15 Apr 2022 01:35:45 GMT","expires":"Mon, 01 Jan 1990 00:00:00 GMT","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
-[debug] [2022-04-15T01:35:45.245Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/cs394-happening:testIamPermissions [none]
-[debug] [2022-04-15T01:35:45.245Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/cs394-happening:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
-[debug] [2022-04-15T01:35:45.427Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/cs394-happening:testIamPermissions 200
-[debug] [2022-04-15T01:35:45.427Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/cs394-happening:testIamPermissions {}
-[debug] [2022-04-15T01:35:45.428Z] [iam] error while checking permissions, command may fail: FirebaseError: Authorization failed. This account is missing the following required permissions on project cs394-happening:
+[debug] [2022-05-19T00:06:28.129Z] <<< HTTP RESPONSE 200 {"expires":"Mon, 01 Jan 1990 00:00:00 GMT","pragma":"no-cache","date":"Thu, 19 May 2022 00:06:27 GMT","cache-control":"no-cache, no-store, max-age=0, must-revalidate","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2022-05-19T00:06:28.153Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/cs394-happening/sites 
+[debug] [2022-05-19T00:06:28.524Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/cs394-happening/sites 200
+[debug] [2022-05-19T00:06:28.525Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/cs394-happening/sites {"sites":[{"name":"projects/cs394-happening/sites/cs394-happening","defaultUrl":"https://cs394-happening.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2022-05-19T00:06:28.526Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/cs394-happening/webApps/-/config [none]
+[debug] [2022-05-19T00:06:28.832Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/cs394-happening/webApps/-/config 200
+[debug] [2022-05-19T00:06:28.832Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/cs394-happening/webApps/-/config {"projectId":"cs394-happening","appId":"1:162054499427:web:551e1194e3bd2d36585c56","databaseURL":"https://cs394-happening-default-rtdb.firebaseio.com","storageBucket":"cs394-happening.appspot.com","apiKey":"AIzaSyDbPLNOw-aNP1If_jvYWHg-gnBfk_rW3pU","authDomain":"cs394-happening.firebaseapp.com","messagingSenderId":"162054499427"}
+[info] i  hosting: Serving hosting files from: build {"metadata":{"emulator":{"name":"hosting"},"message":"Serving hosting files from: \u001b[1mbuild\u001b[22m"}}
+[info] +  hosting: Local server: http://localhost:8050 {"metadata":{"emulator":{"name":"hosting"},"message":"Local server: \u001b[4m\u001b[1mhttp://localhost:8050\u001b[22m\u001b[24m"}}
+[warn] !  ui: Emulator UI unable to start on port 4000, starting on 4001 instead. {"metadata":{"emulator":{"name":"ui"},"message":"Emulator UI unable to start on port 4000, starting on 4001 instead."}}
+[debug] [2022-05-19T00:06:28.909Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2022-05-19T00:06:28.910Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: port"}}
+[debug] [2022-05-19T00:06:28.910Z] Starting Emulator UI with command {"binary":"node","args":["C:\\Users\\sfitc\\.cache\\firebase\\emulators\\ui-v1.5.0\\server.bundle.js"],"optionalArgs":[],"joinArgs":false} {"metadata":{"emulator":{"name":"ui"},"message":"Starting Emulator UI with command {\"binary\":\"node\",\"args\":[\"C:\\\\Users\\\\sfitc\\\\.cache\\\\firebase\\\\emulators\\\\ui-v1.5.0\\\\server.bundle.js\"],\"optionalArgs\":[],\"joinArgs\":false}"}}
+[info] i  ui: Emulator UI logging to ui-debug.log {"metadata":{"emulator":{"name":"ui"},"message":"Emulator UI logging to \u001b[1mui-debug.log\u001b[22m"}}
+[debug] [2022-05-19T00:06:29.085Z] Web / API server started at http://localhost:4001
+ {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at http://localhost:4001\n"}}
+[info] 
+┌─────────────────────────────────────────────────────────────┐
+│ ✔  All emulators ready! It is now safe to connect your app. │
+│ i  View Emulator UI at http://localhost:4001                │
+└─────────────────────────────────────────────────────────────┘
 
-  firebase.projects.get
-  firebasehosting.sites.update
-[debug] [2022-04-15T01:35:45.429Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/cs394-happening [none]
-[debug] [2022-04-15T01:35:45.632Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/cs394-happening 403
-[debug] [2022-04-15T01:35:45.632Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/cs394-happening {"error":{"code":403,"message":"The caller does not have permission","status":"PERMISSION_DENIED"}}
-[debug] [2022-04-15T01:35:45.633Z] HTTP Error: 403, The caller does not have permission
-[debug] [2022-04-15T01:35:45.705Z] FirebaseError: HTTP Error: 403, The caller does not have permission
-    at module.exports (/usr/local/lib/node_modules/firebase-tools/lib/responseToError.js:47:12)
-    at RetryOperation._fn (/usr/local/lib/node_modules/firebase-tools/lib/apiv2.js:286:39)
-    at processTicksAndRejections (node:internal/process/task_queues:96:5)
-[error] 
-[error] Error: Failed to get Firebase project cs394-happening. Please make sure the project exists and your account has permission to access it.
+┌────────────────┬────────────────┬────────────────────────────┐
+│ Emulator       │ Host:Port      │ View in Emulator UI        │
+├────────────────┼────────────────┼────────────────────────────┤
+│ Authentication │ localhost:9099 │ http://localhost:4001/auth │
+├────────────────┼────────────────┼────────────────────────────┤
+│ Hosting        │ localhost:8050 │ n/a                        │
+└────────────────┴────────────────┴────────────────────────────┘
+  Emulator Hub running at localhost:4400
+  Other reserved ports: 4500
+
+Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
+ 
