@@ -1,32 +1,36 @@
 import { render, screen } from '@testing-library/react';
-import { useData, useUserState }from './utils/firebase';
+import { useUserState }from './utils/firebase';
+import { useEvents } from "./utils/api"
 import '@testing-library/jest-dom';
 import App from './App';
 
-test('renders learn react link', () => {
+test('page loads', () => {
+  useEvents.mockReturnValue([{events: []}, false, null]);
+  useUserState.mockReturnValue([null]);
   render(<App />);
   const headerElement = screen.getByText(/Happened/i);
   expect(headerElement).toBeInTheDocument();
 });
 
 jest.mock('./utils/firebase');
+jest.mock('./utils/api');
 
 test('authenticated user sees something different', () => {
   const mockUser = {
     email: 'test@u.northwestern.edu'
   };
 
-  useData.mockReturnValue([{events: []}, false, null]);
-  useUserState.mockReturnValue(mockUser);
-  render(<App />)
-  const signOutButton = screen.getByText(/Sign Out/i)
+  useEvents.mockReturnValue([{events: []}, false, null]);
+  useUserState.mockReturnValue([mockUser]);
+  render(<App />);
+  const signOutButton = screen.getByTestId('btn-sign-out');
   expect(signOutButton).toBeInTheDocument();
-})
+});
 
 test('non authenticated user', () => {
-  useData.mockReturnValue([{events: []}, false, null]);
-  useUserState.mockReturnValue(null);
-  render(<App />)
-  const signOutButton = screen.getByText(/Sign In/i)
+  useEvents.mockReturnValue([{events: []}, false, null]);
+  useUserState.mockReturnValue([null]);
+  render(<App />);
+  const signOutButton = screen.getByTestId("btn-sign-in");
   expect(signOutButton).toBeInTheDocument();
-})
+});

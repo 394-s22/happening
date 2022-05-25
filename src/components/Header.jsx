@@ -32,6 +32,7 @@ const Header = ({ showBackClick, onBackClick, user, onSavedClick, onAddClick }) 
             <span>
               <button
                 data-cy="btn-sign-out"
+                data-testid="btn-sign-out"
                 onClick={() => window.confirm('Are you sure you want to sign out?') && firebaseSignOut()}
                 className="btn"
                 style={{ color: 'white', borderColor: 'white', verticalAlign: 'middle'  }}
