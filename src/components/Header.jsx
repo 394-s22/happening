@@ -23,7 +23,7 @@ const Header = ({ showBackClick, onBackClick, user, onSavedClick, onAddClick }) 
         <button onClick={() => onAddClick()} style={{ color: '#ffffff', background: 'none', border: 'none', fontSize: '2em', verticalAlign: 'middle' }}>
           +
         </button>
-        <button onClick={() => onSavedClick()} style={{ background: 'none', border: 'none', verticalAlign: 'middle' }}>
+        <button data-cy="bookmark-button" data-testid="bookmark-button" onClick={() => onSavedClick()} style={{ background: 'none', border: 'none', verticalAlign: 'middle' }}>
           <img src={bookmarkIcon}  alt="Saved events" style={{ filter: `brightness(0) invert(1)`, height: '120%', width: 'auto', marginRight: '0.5em' }} />
         </button>
 

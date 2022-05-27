@@ -44,7 +44,7 @@ const App = () => {
     arr2.length === 0 ? 1: arr1.reduce((acc, val) => (arr2.includes(val) ? acc + 1 : acc), 0)
   );
 
-  const eventResults = events
+  let eventResults = events
     .map(event => [numElementsShared(event.filters, filters), event])
     .filter(([count, _]) => count > 0)
     .sort((a, b) => a[1].time - b[1].time)
@@ -56,6 +56,8 @@ const App = () => {
   );
 
   if (showRsvp) return <MyEvents onBackClick={() => setShowRsvp(false)} user={user}/>
+
+  eventResults = []
 
   return (
     <div style={{backgroundColor: '#EEE', minHeight: '100vh'}}>
