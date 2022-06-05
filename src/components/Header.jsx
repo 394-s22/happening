@@ -1,7 +1,7 @@
 import React from 'react';
 
 import styles from '../global.module.css';
-import { firebaseSignOut, confirmSignOut } from '../utils/firebase';
+import { confirmSignOut } from '../utils/firebase';
 import bookmarkIcon from '../assets/bookmarks.svg';
 
 const Header = ({ showBackClick, onBackClick, user, onSavedClick, onAddClick }) => (
