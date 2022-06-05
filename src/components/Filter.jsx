@@ -33,7 +33,8 @@ const Filter = ({ filters, setFilters, filterOptions }) => {
         </div>
         <button
           onClick={() => setExpanded(!expanded)}
-          style={{ background: 'none', border: 'none', borderLeft: 'solid 1px #333', flexGrow: '0'}}  
+          style={{ background: 'none', border: 'none', borderLeft: 'solid 1px #333', flexGrow: '0'}}
+          data-testid="expand-filters"
         >
           { expanded ? '▲' : '▼'}
         </button>

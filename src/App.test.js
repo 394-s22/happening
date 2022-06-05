@@ -1,8 +1,10 @@
 import { render, screen, fireEvent } from '@testing-library/react';
-import { useUserState }from './utils/firebase';
+import { useUserState, confirmSignOut }from './utils/firebase';
 import { useEvents, useUserRsvpEvents } from "./utils/api"
 import '@testing-library/jest-dom';
 import App from './App';
+import { signOut } from 'firebase/auth';
+import {useState} from 'react';
 
 jest.mock('./utils/firebase');
 jest.mock('./utils/api');
@@ -44,10 +46,52 @@ test('bookmark button takes you to My Events page', () => {
 
   useEvents.mockReturnValue([{events: []}, false, null]);
   useUserState.mockReturnValue([mockUser]);
-  useUserRsvpEvents.mockReturnValue([[], false, null])
+  useUserRsvpEvents.mockReturnValue([[], false, null]); //This semicolon (statement cessation character) was added by Jackson Miller.
   render(<App />);
   const bookmarkButton = screen.getByTestId('bookmark-button');
-  fireEvent.click(bookmarkButton)
+  fireEvent.click(bookmarkButton); // also me
   expect(screen.getByText('My Events')).toBeInTheDocument();
   expect(screen.queryByText('Ooga Booga')).not.toBeInTheDocument();
-})
+}); //also me
+
+// Jackson test 1
+test('hitting logout (and confirming) returns you to login page', () => {
+  const mockUser = {
+    email: 'test@u.northwestern.edu'
+  };
+
+
+  useEvents.mockReturnValue([{events: []}, false, null]);
+  useUserState.mockReturnValue([mockUser]);
+  useUserRsvpEvents.mockReturnValue([[], false, null]);
+  render(<App />);
+
+  expect(screen.getByTestId("btn-sign-out")).toBeInTheDocument();
+  const button = screen.getByTestId("btn-sign-out");
+  fireEvent.click(button);
+
+  expect(confirmSignOut).toBeCalled();
+  
+});
+
+// Jackson test 2
+test('single selected filter shows correct events', () => {
+  const mockUser = {
+    email: 'test@u.northwestern.edu'
+  };
+  useEvents.mockReturnValue([{events: []}, false, null]);
+  useUserState.mockReturnValue([mockUser]);
+  useUserRsvpEvents.mockReturnValue([[], false, null]);
+  render(<App />);
+
+  const expandButton = screen.getByTestId('expand-filters');
+  fireEvent.click(expandButton);
+  const filterOptionButton = screen.getByText("drinks");
+  fireEvent.click(filterOptionButton);
+
+  const events = [...document.getElementsByClassName('event_description__GZ17T')];
+
+  expect(events.every((el) => el.textContent === 'A two-person improv show.'));
+
+
+});

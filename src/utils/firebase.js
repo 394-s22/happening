@@ -109,3 +109,5 @@ export const useUserState = () => {
 
   return [user];
 };
+
+export const confirmSignOut = () => window.confirm("Are you sure you want to sign out?") && firebaseSignOut();
