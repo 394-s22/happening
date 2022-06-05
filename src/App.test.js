@@ -127,3 +127,22 @@ test('add button takes you to Add Events modal', () => {
   fireEvent.click(addButton); 
   expect(screen.getByText('Add Event')).toBeInTheDocument();
 }); 
+
+//Sharat test 1 below
+test('clicking close on Add Events page hides modal', async () => {
+  const mockUser = {
+    email: 'test@u.northwestern.edu'
+  };
+
+  useEvents.mockReturnValue([{events: []}, false, null]);
+  useUserState.mockReturnValue([mockUser]);
+  render(<App />);
+  const addButton = screen.getByTestId('add-button');
+  expect(screen.queryByText('Add Event')).not.toBeInTheDocument();
+  fireEvent.click(addButton); 
+  expect(screen.getByText('Add Event')).toBeInTheDocument();
+  let closeButton = screen.getByTestId('add-event-close');
+  fireEvent.click(closeButton);
+  await new Promise((r) => setTimeout(r, 2000));
+  expect(document.body.classList.contains('modal-open')).toBe(false);
+}); 

@@ -145,7 +145,7 @@ const AddEvent = ({showAddEvent, setShowAddEvent, filterOptions}) => {
                 </div>
             </Modal.Body>
             <Modal.Footer>
-            <Button variant="secondary" onClick={handleClose}>
+            <Button variant="secondary" data-testid="add-event-close" onClick={handleClose}>
                 Close
             </Button>
             <Button variant="primary" onClick={handleSubmit} className="btn" style={{backgroundColor: "#4e2a84", color: "#ffffff"}}>
