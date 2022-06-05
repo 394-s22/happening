@@ -113,3 +113,19 @@ test('single selected filter shows correct events', () => {
 
 
 // });
+
+// Yabi test 1 below
+test('add button takes you to Add Events modal', () => {
+  const mockUser = {
+    email: 'test@u.northwestern.edu'
+  };
+
+  useEvents.mockReturnValue([{events: []}, false, null]);
+  useUserState.mockReturnValue([mockUser]);
+  useUserRsvpEvents.mockReturnValue([[], false, null]); 
+  render(<App />);
+  const addButton = screen.getByTestId('add-button');
+  fireEvent.click(addButton); 
+  expect(screen.getByText('Add Events')).toBeInTheDocument();
+  expect(screen.queryByText('Ooga Booga')).not.toBeInTheDocument();
+}); 

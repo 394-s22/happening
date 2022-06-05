@@ -20,7 +20,7 @@ const Header = ({ showBackClick, onBackClick, user, onSavedClick, onAddClick }) 
         Happened
       </span>
       <div>
-        <button onClick={() => onAddClick()} style={{ color: '#ffffff', background: 'none', border: 'none', fontSize: '2em', verticalAlign: 'middle' }}>
+        <button data-cy="add-button" data-testid="add-button" onClick={() => onAddClick()} style={{ color: '#ffffff', background: 'none', border: 'none', fontSize: '2em', verticalAlign: 'middle' }}>
           +
         </button>
         <button data-cy="bookmark-button" data-testid="bookmark-button" onClick={() => onSavedClick()} style={{ background: 'none', border: 'none', verticalAlign: 'middle' }}>
