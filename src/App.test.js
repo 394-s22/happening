@@ -129,20 +129,34 @@ test('add button takes you to Add Events modal', () => {
 }); 
 
 //Sharat test 1 below
-test('clicking close on Add Events page hides modal', async () => {
+test('clicking close on Add Events page hides modal', () => {
   const mockUser = {
     email: 'test@u.northwestern.edu'
   };
-
   useEvents.mockReturnValue([{events: []}, false, null]);
   useUserState.mockReturnValue([mockUser]);
   render(<App />);
   const addButton = screen.getByTestId('add-button');
   expect(screen.queryByText('Add Event')).not.toBeInTheDocument();
-  fireEvent.click(addButton); 
+  expect(screen.queryByTestId('add-event-close')).not.toBeInTheDocument();
+  fireEvent.click(addButton);
   expect(screen.getByText('Add Event')).toBeInTheDocument();
-  let closeButton = screen.getByTestId('add-event-close');
+  const closeButton = screen.getByTestId('add-event-close');
   fireEvent.click(closeButton);
-  await new Promise((r) => setTimeout(r, 2000));
-  expect(document.body.classList.contains('modal-open')).toBe(false);
-}); 
+  //expect(screen.queryByTestId('add-event-close')).not.toBeInTheDocument();
+});
+
+//Sharat test 2 below 
+test('events are rendered in chronological order', () => {
+  const mockUser = {
+    email: 'test@u.northwestern.edu'
+  };
+  useEvents.mockReturnValue([{events: [{"_id":{"$oid":"626751d23ba75c3804b50fd4"},"title":"Lakefill Campfire","location":"Lakefill","time":1651112100, "description":"Roast marshmallows and meet others on the lakefill","pictureUrl":"https://admissionblog.northwestern.edu/files/2015/07/Blog-Post-Image-tcwxq1.jpg","filters":["food","outdoors"],"rsvp":[],"__v":{"$numberInt":"0"}}, {"_id":{"$oid":"62674d9b3ba75c3804b50130"},"title":"The Real Skim Shady","location":"McCormick Auditorium","time":1651104000,"description":"A two-person improv show.","pictureUrl":"https://cdn11.bigcommerce.com/s-q1qpuo8ch5/images/stencil/2048x2048/products/981/507/skimmilkhalf__61068.1554299719.jpg?c=2","filters":["free","indoors","entertainment"],"rsvp":[],"__v":{"$numberInt":"0"}}]}, false, null]);
+  useUserState.mockReturnValue([mockUser]);
+  render(<App />);
+  const html = document.body.innerHTML;
+  const a = html.search("The Real Skim Shady");
+  const b = html.search("Lakefill Campfire");
+  console.log(html)
+  expect(b).toBeGreaterThan(a);
+})
