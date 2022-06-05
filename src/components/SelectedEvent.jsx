@@ -70,11 +70,15 @@ const SelectedEvent = ({ event }) => {
             {
               didRsvp ? (
               <button 
+                data-cy="cancel-button" 
+                data-testid="cancel-button"
                 className="btn btn-outline-secondary" 
                 onClick={() => handleRsvp()}
               >Cancel RSVP</button>
               ) : (
                 <button 
+                  data-cy="rsvp-button" 
+                  data-testid="rsvp-button"
                   className="btn btn-secondary" 
                   onClick={() => handleRsvp()}
                 >RSVP Now</button>

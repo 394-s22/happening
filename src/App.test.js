@@ -122,10 +122,8 @@ test('add button takes you to Add Events modal', () => {
 
   useEvents.mockReturnValue([{events: []}, false, null]);
   useUserState.mockReturnValue([mockUser]);
-  useUserRsvpEvents.mockReturnValue([[], false, null]); 
   render(<App />);
   const addButton = screen.getByTestId('add-button');
   fireEvent.click(addButton); 
-  expect(screen.getByText('Add Events')).toBeInTheDocument();
-  expect(screen.queryByText('Ooga Booga')).not.toBeInTheDocument();
+  expect(screen.getByText('Add Event')).toBeInTheDocument();
 }); 
