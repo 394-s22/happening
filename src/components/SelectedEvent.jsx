@@ -34,7 +34,7 @@ const SelectedEvent = ({ event }) => {
   }
 
   return(
-      <div>
+      <div data-testid={'selectedEventCard'}>
         <div>
           <img src={ event.pictureUrl } alt="Event" className={styles.eventImage}/>
         </div>

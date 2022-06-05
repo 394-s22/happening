@@ -11,7 +11,7 @@ const Event = ({ event, onClick, filterMatches }) => {
   } 
 
   return(
-    <div className={`card ${styles.eventCard}`} onClick={ onClick } style={{display: "flex", flexDirection: "row", margin: '.5em', border: 'solid 1px #888'}}>
+    <div className={`card ${styles.eventCard}`} data-testid={'eventCard'}onClick={ onClick } style={{display: "flex", flexDirection: "row", margin: '.5em', border: 'solid 1px #888'}}>
       <div style={{ display: 'flex', alignItems: 'center' }}>
         <img src={ event.pictureUrl } alt="Event" style={{height: "6em", width:"6em", margin: '0.5em 0.5em', borderRadius: '15px'}}/>
       </div>

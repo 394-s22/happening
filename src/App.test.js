@@ -95,3 +95,21 @@ test('single selected filter shows correct events', () => {
 
 
 });
+
+// Rutuja Test 2: All events shown when no filters applied
+
+// test('Show all events when no filters are applied', () => {
+//   const mockUser = {
+//     email: 'test@u.northwestern.edu'
+//   };
+//   useEvents.mockReturnValue([{events: []}, false, null]);
+//   useUserState.mockReturnValue([mockUser]);
+//   useUserRsvpEvents.mockReturnValue([[], false, null]);
+//   render(<App />);
+
+//   const events = [...document.getElementsByClassName('event_description__GZ17T')];
+
+//   //expect(events.every((el) => el.textContent === 'A two-person improv show.'));
+
+
+// });
