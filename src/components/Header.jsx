@@ -1,7 +1,7 @@
 import React from 'react';
 
 import styles from '../global.module.css';
-import { firebaseSignOut } from '../utils/firebase';
+import { firebaseSignOut, confirmSignOut } from '../utils/firebase';
 import bookmarkIcon from '../assets/bookmarks.svg';
 
 const Header = ({ showBackClick, onBackClick, user, onSavedClick, onAddClick }) => (
@@ -33,7 +33,7 @@ const Header = ({ showBackClick, onBackClick, user, onSavedClick, onAddClick }) 
               <button
                 data-cy="btn-sign-out"
                 data-testid="btn-sign-out"
-                onClick={() => window.confirm('Are you sure you want to sign out?') && firebaseSignOut()}
+                onClick={() => confirmSignOut()}
                 className="btn"
                 style={{ color: 'white', borderColor: 'white', verticalAlign: 'middle'  }}
               >
