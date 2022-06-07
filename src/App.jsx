@@ -89,8 +89,6 @@ const App = () => {
                   event={ event }
                   key={ index }
                   filterMatches={ getFilterMatches(event) }
-                  data-testid="event-test"
-                  class="event-test"
                 />
               )) 
             }

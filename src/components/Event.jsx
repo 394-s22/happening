@@ -17,7 +17,7 @@ const Event = ({ event, onClick, filterMatches }) => {
       </div>
       <div>
         <div style={{marginBottom: '.4em'}}>
-          <h4 style={{margin: '0'}}>{ event.title }</h4>
+          <h4 data-testid="event-test" style={{margin: '0'}}>{ event.title }</h4>
           {
             filterMatches && filterMatches.length > 0 && (
               <div>
